@@ -15,6 +15,7 @@ const schema = new mongoose.Schema({
   state: {type: String},
   employees: [employeeSchema],
   tags: [{type: String}],
+  paypalButton: {type: String}
 });
 
 schema.plugin(crate, {

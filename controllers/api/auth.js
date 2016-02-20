@@ -1,9 +1,11 @@
 'use strict';
 
+const _ = require('lodash');
+
 exports.auth = (req, res, next) => {
   res.json({
     token: req.user.getToken(),
-    user: req.user
+    user: _.omit(req.user, 'password')
   });
   res.end();
 };
