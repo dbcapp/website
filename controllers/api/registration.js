@@ -3,6 +3,7 @@
 const _ = require('lodash');
 const UserModel = require('../../models/user');
 const saveTmpFiles = require('../../helpers/saveTmpFile');
+const fs = require('fs');
 
 exports.donator = (req, res, next) => {
   let data = _.pick(req.body, 'name', 'email', 'password', 'donator');
@@ -27,6 +28,7 @@ exports.donator = (req, res, next) => {
             if (err) {
               reject(err);
             } else {
+              fs.unlinkSync(tmpFilePath);
               resolve(err);
             }
           })
@@ -70,6 +72,7 @@ exports.organization = (req, res, next) => {
             if (err) {
               reject(err);
             } else {
+              fs.unlinkSync(tmpFilePath);
               resolve(err);
             }
           })
