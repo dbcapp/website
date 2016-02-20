@@ -16,3 +16,17 @@ exports.user = (req, res, next) => {
       res.end();
     });
 };
+
+exports.organization = (req, res, next) => {
+  let data = _.pick(req.body, 'name', 'email', 'password');
+
+  data.type = 'Organization';
+
+  let user = new UserModel(data);
+
+  user.save()
+    .then(() => {
+      res.json({created: true});
+      res.end();
+    });
+};
