@@ -23,6 +23,8 @@ app.use('/', routes);
 
 require('./helpers/db').connect();
 
+require('./helpers/passport')();
+
 app.listen(3000, function() {
   console.log('Server listening on port 3000');
 });
