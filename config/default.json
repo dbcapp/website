@@ -1,3 +1,6 @@
 {
-  "mongodb": "mongodb://localhost/dbc"
+  "mongodb": "mongodb://localhost/dbc",
+  "paypal": {
+    "debug": true
+  }
 }

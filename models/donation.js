@@ -1,8 +1,19 @@
 'use strict';
 
-const _ = require('lodash');
 const mongoose = require('mongoose');
 const schema = require('./schemas/donation');
+const UserModel = require('./user');
+
+// Hooks
+const increaseTotalDonationInOrganization = (document) => {
+  UserModel.update({_id: document.to}, {
+    $inc: {
+      'organization.totalDonations': document.value
+    }
+  });
+};
+
+schema.post('save', increaseTotalDonationInOrganization);
 
 const Model = mongoose.model('Donation', schema);
 
