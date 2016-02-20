@@ -37,7 +37,13 @@ router.get('/register/user', (req, res) => {
   });
 });
 
-router.get('/register/ngo', (req, res) => {
+router.get('/register/organization', (req, res) => {
+  res.render('register-ngo', {
+    classBody: "page"
+  });
+});
+
+router.get('/register/organization/', (req, res) => {
   res.render('register-ngo', {
     classBody: "page"
   });
