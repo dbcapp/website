@@ -1,0 +1,55 @@
+  {% extends "partials/base.html" %}
+
+  {% block content %}
+  <section class="recent-causes section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-breadcroumb">
+            <p><a href="/">Home</a> / <a href="/register">Register</a> / Organization / {{ org.organization.name }}</p>
+          </div>
+
+          <div class="inner-page-title">
+            <h2>Organization - {{ org.organization.name }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <form class="after-register">
+            <div class="contact-form" style="margin: 0 auto;">
+              <div class="row">
+                <p class="helper-message" style="width: 94%; margin: 0 auto 10px;"></p>
+
+                <div class="col-md-12">
+                  <div class="col-md-12">
+                    <textarea name="description" class="description" cols="30" rows="10"></textarea>
+                  </div>
+
+                  <div class="col-md-12">
+                    <select name="employeers" class="employeers-tokenizer" style="width: 100%"></select>
+                  </div>
+
+                  <div class="col-md-12">
+                    <label for="">Foto</label>
+                    <input type="file" name="picture">
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-center">
+                <input type="hidden" class="orgId" value="{{ org.id }}">
+                <input type="submit" value="Finish">
+              </p>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div><!-- /container -->
+  </section><!-- /recent-causes -->
+  {% endblock %}

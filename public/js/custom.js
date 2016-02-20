@@ -12,7 +12,7 @@ $(function() {
     init: function() {
       this.login();
       this.register();
-      this.updateOrganization();
+      this.afterRegister();
     },
     login: function() {
       var email = $('.login').find('.email');
@@ -128,7 +128,32 @@ $(function() {
       });
     },
     afterRegister: function() {
+      $('.employeers-tokenizer').select2({
+        tags: true,
+        tokenSeparators: [',', ' ']
+      });
 
+      $(".after-register").on('submit', function() {
+        var employeers = $('.employeers-tokenizer').split(',');
+
+        $.ajax({
+          url: '/api/registration/organization/'+$('.orgId').val(),
+          method: "PUT",
+          data: {
+            organization: {
+              description: $('.description').val(),
+              employees: employeers,
+              picture: $('.picture').val(),
+            }
+          }
+        })
+        .done(function(response) {
+          window.location = "/register/finish";
+        })
+        .fail(function(response) {
+          $('.helper-message').removeClass("bg-success").addClass("bg-danger").html(response.message);
+        });
+      });
     }
   };
 
