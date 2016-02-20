@@ -1408,6 +1408,7 @@ html body input[type="submit"]:hover { background: none repeat scroll 0 0 #000 }
 }
 .contact-form input[type="text"],
 .contact-form input[type="email"],
+.contact-form input[type="password"],
 .contact-form textarea {
     background: none repeat scroll 0 0 #ededed;
     border: medium none;
