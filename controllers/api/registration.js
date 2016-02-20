@@ -18,7 +18,7 @@ exports.user = (req, res, next) => {
 };
 
 exports.organization = (req, res, next) => {
-  let data = _.pick(req.body, 'name', 'email', 'password');
+  let data = _.pick(req.body, 'name', 'email', 'password', 'organization');
 
   data.type = 'Organization';
 
