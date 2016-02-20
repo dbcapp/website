@@ -1,0 +1,1740 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Vubon
+    Author: WP Expand
+    Author URI: http://www.wpexpand.com
+    License: GNU General Public License version 3.0
+    License URI: http://www.gnu.org/licenses/gpl-3.0.html
+    Version: 1.0
+    
+    All files, unless otherwise stated, are released under the GNU General Public License
+    version 3.0 (http://www.gnu.org/licenses/gpl-3.0.html)
+
+-----------------------------------------------------------------------------------
+    
+    CSS INDEX
+    ===================
+
+    1. Base CSS
+    2. Slider CSS
+    3. Header CSS
+    4. Upcoming Event CSS
+    5. About CSS
+    6. Recent Cases CSS
+    7. More events CSS
+    8. Call to action CSS
+    9. Recent news CSS
+    10. Sidebar CSS
+    11. Footer top CSS
+    12. Internal page CSS
+    13. Blog post CSS
+    14. Comments CSS
+    15. Preloader CSS
+    16. Colors CSS
+
+-----------------------------------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+1. Base CSS
+-----------------------------------------------------------*/
+
+.floatleft { float: left }
+.floatright { float: right }
+.alignleft {
+    float: left;
+    margin-right: 15px;
+}
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+a:focus { outline: 0px solid }
+img {
+    max-width: 100%;
+    height: auto;
+}
+.fix { overflow: hidden }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 15px;
+    font-weight: 700;
+}
+html,
+body { height: 100% }
+body { font-family: 'Open Sans', sans-serif }
+.section-padding { padding: 60px 0 }
+.section-gray { background-color: #F7F7F7 }
+.section-dark {
+    background-color: #110C09;
+    color: #fff;
+}
+a { transition: .3s }
+a:hover { color: #000 }
+
+/* --------------------------------------------------------
+2. Slider CSS
+-----------------------------------------------------------*/
+
+.top-area { position: relative }
+.top-area, .slider-area, .slider-area div { height: 100% }
+div.owl-controls, div.owl-controls div {height: auto}
+.slide-text-table {
+    width: 100%;
+    display: table;
+    padding-bottom: 50px;
+}
+.slide-text-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.slide-bg {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: center center;
+    transition: 10s;
+    transform: scale(1);
+}
+
+.slidezoom {transform: scale(1.5)}
+.slide-bg:after {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: .75;
+    content: "";
+}
+.slider-area .owl-nav div{
+    color: #fff;
+    font-size: 90px;
+    line-height: 140px;
+    margin-top: -70px;
+    opacity: 0.2;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+}
+.slider-area .owl-nav div.owl-prev { left: 30px }
+.slider-area .owl-nav div.owl-next { right: 30px }
+.slider-area .owl-nav div:hover { opacity: .4 }
+.slider-area.owl-carousel .owl-item {overflow: hidden}
+.slide-1 { background-image: url(img/slide-bg-1.jpg) }
+.slide-2 { background-image: url(img/slide-bg-2.jpg) }
+
+/* --------------------------------------------------------
+3. Header CSS
+-----------------------------------------------------------*/
+
+.header-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+.header-top-left { color: #fff }
+.page .header-top-left,
+.page .social-icon a { color: #5c5c5c }
+.page .header-area::after { opacity: .9 }
+.header-top-left p {
+    float: left;
+    line-height: 23px;
+    margin-bottom: 0;
+    margin-right: 25px;
+}
+.header-top-left i { margin-right: 5px }
+div.social-icon a {
+    color: #fff;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.header-top-area { padding: 20px 0 }
+.logo { font-family: 'Kaushan Script', cursive }
+.header-area {
+    position: relative;
+    width: 100%;
+    z-index: 99;
+}
+.header-area::after {
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    transition: .4s;
+}
+div.logo a { color: #fff }
+.logo h1 {
+    font-size: 45px;
+    margin: 0;
+    padding: 25px 0;
+    transition: .4s;
+}
+.mainmenu {
+    font-weight: 600;
+    margin-top: 30px;
+    position: relative;
+    transition: .4s;
+}
+.mainmenu:after {
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+content: "";
+height: 100%;
+z-index: -1;
+display: none
+}
+.mainmenu ul li { border: 2px solid transparent }
+.mainmenu ul li a {
+    color: #fff;
+    padding: 10px 25px;
+}
+.mainmenu ul li.menu-bordered {
+    border: 2px solid #fff;
+}
+.mainmenu ul li.menu-bordered:hover { border-color: #333 }
+.mainmenu ul li.menu-bordered:hover a {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+.nav > li > a:focus,
+.nav > li > a:hover { background-color: transparent }
+.header-area a:hover {
+    color: #333333;
+    text-decoration: none;
+}
+.mainmenu ul.nav.navbar-nav li ul {
+    border: 2px solid;
+    left: 0;
+    list-style: outside none none;
+    margin: 0;
+    padding: 5px 0;
+    position: absolute;
+    top: 80px;
+    width: 250px;
+    visibility: hidden;
+    z-index: -1;
+    transition: .4s;
+    opacity: 0;
+}
+
+
+.mainmenu ul.nav.navbar-nav li:hover ul {
+    visibility: visible;
+    z-index: 99;
+    top: 45px;
+    opacity: 1;
+}
+
+.mainmenu ul.nav.navbar-nav li ul::before {
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.mainmenu ul.nav.navbar-nav li ul::after {
+    content: "\f0d7";
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: -22px;
+    left: 23px;
+    transform: rotate(180deg);
+    font-size: 25px;
+    opacity: .8;
+}
+.mainmenu ul.nav.navbar-nav li ul li { display: block }
+.mainmenu ul.nav.navbar-nav li ul li a {
+    display: block;
+    padding: 5px 20px;
+}
+.is-sticky .header-area::after { opacity: .9 }
+.is-sticky .logo h1 {
+    font-size: 30px;
+    padding: 10px 0;
+}
+.is-sticky .mainmenu { margin-top: 5px }
+.slide-text-cell h2 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 300;
+    margin: 15px 0;
+}
+.slide-text-cell h2 span { font-weight: 900 }
+
+/* --------------------------------------------------------
+4. Upcoming Event CSS
+-----------------------------------------------------------*/
+
+.upcoming-event-area {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 99
+}
+.upcoming-event-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.upcoming-event-wrapper::after {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: .55;
+}
+.upcoming-event {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    margin: 10px 10px 0;
+}
+.upcoming-event-top { padding: 10px 0 }
+.upcoming-event-title {
+    color: #a2a2a2;
+    font-size: 12px;
+    margin-left: 40px;
+    padding: 16px 0 16px 70px;
+    position: relative;
+}
+.upcoming-event-title h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.upcoming-event-icon {
+    font-size: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.upcoming-event-title p .fa.fa-calendar { margin-left: 15px }
+.upcoming-event-heading h2 {
+    font-size: 22px;
+    line-height: 30px;
+    margin: 0;
+}
+.upcoming-event-heading a:hover { text-decoration: none }
+.upcoming-event-heading { padding: 8px 0px 20px }
+.upcoming-event-bottom { background: none repeat scroll 0 0 #f6f7f2 }
+.upcoming-event-fund { overflow: hidden ; background: #444}
+.upcoming-single-fund {
+    color: #fff;
+    float: left;
+    font-weight: 700;
+    padding: 20px 10px;
+    text-align: center;
+    width: 33.33333%;
+}
+.upcoming-single-fund h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.upcoming-single-fund.target { background: none repeat scroll 0 0 #5c5c5c }
+.upcoming-single-fund.gained { }
+.upcoming-single-fund.donators { background: #444 }
+.upcoming-event-title p { margin: 0 }
+
+
+/* --------------------------------------------------------
+5. About CSS
+-----------------------------------------------------------*/
+
+.page-title {
+    margin-bottom: 60px;
+    text-align: center;
+}
+.page-title h2 {
+    display: inline-block;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative;
+    text-transform: uppercase;
+}
+.page-title h2::before {
+    background: none repeat scroll 0 0 #f8f8f8;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.section-gray .page-title h2::before { background-color: #EEEEEE }
+.section-dark .page-title h2::before { background-color: #191919 }
+.page-title h2::after {
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 50%;
+    margin-left: -15px;
+    position: absolute;
+    width: 30px;
+}
+
+.about-photo {
+    position: relative;
+}
+.left-frame, .right-frame {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.left-frame::before, .left-frame::after, .right-frame::before, .right-frame::after {content: "";position: absolute;}
+
+.left-frame::before {    
+    height: 100px;
+    left: 0px;
+    top: 0;
+    width: 10px;
+}
+.left-frame::after {
+    height: 10px;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+}
+.right-frame::before {
+    bottom: 0;
+    height: 100px;
+    right: 0px;
+    width: 10px;
+}
+.right-frame::after {
+    bottom: 0px;
+    height: 10px;
+    right: 0px;
+    width: 200px;
+}
+
+.about-text { margin-left: 40px; line-height: 25px; color: #666}
+.about-text h2 { margin-bottom: 20px }
+.panel-default .panel-heading {
+    border-radius: 0;
+    color: #fff;
+    padding: 0px;
+}
+.about-text .panel-group {
+  margin-top: 20px;
+}
+.panel .panel-heading h4 a {
+    padding: 15px;
+    display: block;
+}
+.panel-group .panel {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+.panel-group .panel + .panel { margin-top: 15px }
+h4.panel-title a {color: #fff}
+.panel-title a:hover,
+.panel-title a:focus {
+    text-decoration: none;
+    color: #222;
+}
+
+.total-events {
+color: #fff;
+overflow: hidden;
+padding: 16px 32px 17px 13px;
+position: absolute;
+width: 110px;
+    left: 0;top: 0
+}
+.total-events h2 {
+    font-size: 35px;
+    margin: 0;
+}
+.total-events h2 span {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+}
+.total-events::after {
+    background: #fff none repeat scroll 0 0;
+    content: "";
+    height: 120%;
+    position: absolute;
+    right: -35px;
+    top: 0;
+    transform: rotate(15deg);
+    width: 50px;
+}
+.our-stats {
+margin-top: 40px;
+overflow: hidden;
+    position: relative
+}
+
+.total-donation-stats {
+  padding-left: 110px;
+}
+.total-donation-stats p {
+    color: #fff;
+    overflow: hidden;
+    padding: 4px 10px 4px 20px;
+    position: relative;
+    margin-bottom: 15px;
+}
+.total-donation-stats span {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+.total-donation-stats p::before {
+    background: #fff none repeat scroll 0 0;
+    content: "";
+    height: 120%;
+    left: -20px;
+    position: absolute;
+    top: -6px;
+    transform: rotate(15deg);
+    width: 30px;
+}
+.total-donation-stats p:last-child {
+    background: #666 none repeat scroll 0 0;
+    margin-left: -15px;
+}
+
+
+/* --------------------------------------------------------
+6. Recent Cases CSS
+-----------------------------------------------------------*/
+.single-cause {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 50px;
+}
+.progress {
+    background-color: #F3F3F3;
+    border-radius: 0;
+    box-shadow: 0 0 0;
+    height: 15px;
+    margin-bottom: 10px;
+}
+.cause-featured-area {
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+}
+.cause-featured-area a:after {
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: scale(0);
+    transition: .2s;
+}
+.cause-featured-area a {
+    display: block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+.single-cause:hover .cause-featured-area a:after { transform: scale(1) }
+.cause-featured-area i.fa {
+    color: #fff;
+    font-size: 30px;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -15px;
+    position: absolute;
+    top: -100%;
+    z-index: 9;
+    transition: .4s;
+}
+.single-cause:hover .cause-featured-area i.fa { top: 50% }
+.cause-content { margin: 15px }
+.cause-content h2 {
+    font-size: 16px;
+    margin: 0 0 15px;
+    padding: 5px;
+    text-transform: uppercase
+}
+.cause-content h2 a { color: #5c5c5c }
+.cause-stats { font-size: 12px }
+.cause-link {
+    background: none repeat scroll 0 0 #f3f3f3;
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+}
+.cause-link p {
+    float: left;
+    margin: 0;
+    padding: 16px 10px;
+}
+body a.cause-donate {
+    color: #fff;
+    float: right;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 15px 25px;
+    text-transform: uppercase;
+}
+body a.cause-donate:hover {
+    color: #fff;
+    background-color: #333;
+    text-decoration: none;
+}
+.cause-link p a { color: #5c5c5c }
+.cause-view-all {
+    background: none repeat scroll 0 0 #fff;
+    color: #5c5c5c;
+    display: inline-block;
+    font-weight: 700;
+    padding: 10px 30px;
+}
+.cause-view-all:hover {
+    color: #fff;
+    background-color: #333;
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------
+7. More events CSS
+-----------------------------------------------------------*/
+
+.more-event-single {
+    position: relative;
+    overflow: hidden;
+}
+.more-event-single img { width: 100% }
+.more-event-hover {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+.more-event-cell {
+    color: #fff;
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    border: 4px solid #fff;
+    padding: 10px;
+}
+.more-event-hover::after {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: .75;
+    transform: scale(0);
+    transition: .2s;
+}
+.more-event-single:hover .more-event-hover::after { transform: scale(1) }
+.more-event-cell h2 { font-size: 24px }
+.event-sep {
+    display: inline-block;
+    width: 30px;
+}
+body a.btn-bordered {
+    border: 2px solid #fff;
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 15px;
+    padding: 8px 20px;
+}
+body a.btn-bordered:hover,
+body .cta-btn:hover,
+body .newsletter-form input[type="submit"]:hover,
+body a.readmore:hover,
+body .back-to-home:hover {
+    border-color: #333;
+    background-color: #333;
+    text-decoration: none;
+    color: #fff;
+}
+.more-event-table {
+    display: table;
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: .4s;
+}
+.more-event-single:hover .more-event-table { left: 0 }
+
+/* --------------------------------------------------------
+8. Call to action CSS
+-----------------------------------------------------------*/
+
+.call-to-action { position: relative }
+.cta-bg {
+    background: url("img/cta-bg.jpg") repeat fixed 0 0 rgba(0, 0, 0, 0);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.call-to-action h2 {
+    color: #757575;
+    font-weight: 300;
+    margin: 0;
+    padding: 13px 0;
+    padding-right: 235px;
+}
+.call-to-action h2 span { font-weight: 700 }
+.cta-btn {
+    border: 2px solid;
+    display: inline-block;
+    font-size: 24px;
+    padding: 10px 40px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -30px;
+}
+
+/* --------------------------------------------------------
+9. Recent news CSS
+-----------------------------------------------------------*/
+
+.recent-news-title h2 {
+    border-bottom: 3px solid #eeeeee;
+    color: #5c5c5c;
+    font-size: 36px;
+    padding-bottom: 15px;
+    position: relative;
+}
+.recent-news-title h2::after {
+    bottom: -3px;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 50px;
+}
+.recent-news-title {
+    margin-bottom: 35px;
+    position: relative;
+}
+.recent-news-title a {
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+.featured-news-content,
+.single-post-content {
+    background: none repeat scroll 0 0 #f2f2f2;
+    padding: 15px;
+    position: relative;
+}
+.featured-news-date,
+.single-post-date {
+    bottom: 15px;
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    padding: 25px;
+    position: absolute;
+    right: 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.featured-news-date span,
+.single-post-date span {
+    display: block;
+    font-size: 16px;
+}
+.featured-news-date p,
+.single-post p {
+    line-height: 30px;
+    margin: 0;
+}
+.featured-news-title h2,
+.single-post h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+.featured-news-title h2 a,
+.single-post h2 a { color: #4f4f4f }
+.featured-news-meta,
+.single-post-meta {
+    color: #a6a6a6;
+    font-size: 12px;
+    margin: 15px 0;
+}
+.featured-news-meta i.fa-share,
+.single-post-meta i.fa-share { margin-left: 25px }
+.featured-news-title,
+.single-post-title {
+    color: #a6a6a6;
+    line-height: 23px;
+}
+body a.readmore {
+    color: #fff;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 20px;
+}
+.featured-news { margin-bottom: 50px }
+.single-related-news img {
+    float: left;
+    margin-right: 15px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.single-related-news h2 {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+.single-related-news h2 a { color: #4f4f4f }
+.related-news-meta {
+    color: #a6a6a6;
+    font-size: 11px;
+}
+.single-related-news {
+    color: #a6a6a6;
+    font-size: 12px;
+}
+
+/* --------------------------------------------------------
+10. Sidebar CSS
+-----------------------------------------------------------*/
+
+.newsletter-subscribe {
+    
+    margin-bottom: 40px;
+    padding: 30px;
+    border-bottom: 4px solid #EEEEEE;
+    position: relative;
+}
+.newsletter-subscribe h2 { font-size: 20px }
+.newsletter-form input[type="email"],
+.newsletter-form input[type="text"] {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+.newsletter-form input[type="submit"] {
+    border: medium none;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+.newsletter-subscribe::after {
+    top: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("img/pattern.png") repeat fixed 0 0 #f3f3f3;
+    opacity: .4;
+    z-index: -1;
+}
+.our-archivement {
+    background: url("img/pattern.png") repeat fixed 0 0;
+    position: relative;
+    z-index: 1;
+    padding: 30px 30px 20px;
+}
+.our-archivement h2 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.archivement-list { overflow: hidden }
+.archivement-list img {
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 30px;
+}
+.clients-list .owl-nav {
+    color: #ccc;
+    font-size: 40px;
+    left: 0;
+    line-height: 50px;
+    margin-top: -25px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+.clients-list .owl-nav > div {
+    position: absolute;
+    top: 0;
+}
+.clients-list .owl-nav > div.owl-prev { left: -50px }
+.clients-list .owl-nav div.owl-next { right: -50px }
+
+/* --------------------------------------------------------
+11. Footer top CSS
+-----------------------------------------------------------*/
+
+.footer-top-area {
+    background: none repeat scroll 0 0 #1a1a1a;
+    color: #999;
+    font-size: 13px;
+}
+.site-title {
+    font-family: 'Kaushan Script', cursive;
+    margin-bottom: 38px;
+    color: #ddd;
+}
+.footer-top-area .social-icon a {
+    padding-right: 15px;
+    padding-left: 0;
+}
+.wid-title {
+    font-size: 20px;
+    margin-bottom: 50px;
+    color: #ddd;
+}
+.footer-widget ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.footer-widget ul li a {
+    color: #999;
+    display: block;
+    padding: 4px 0;
+}
+.footer-widget h4 { text-transform: uppercase }
+.footer {
+    background: none repeat scroll 0 0 #1d1d1d;
+    border-top: 1px solid #252525;
+    color: #999;
+    font-size: 13px;
+}
+.footer-menu ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+.footer-menu ul li { display: inline-block }
+.footer-menu ul li a {
+    display: inline-block;
+    padding: 20px 0 20px 30px;
+    color: #ddd;
+}
+footer.footer a{color: #ddd}
+footer.footer a:hover {color: #fff;text-decoration: none}
+.footer-copyright p {
+    margin: 0;
+    padding: 20px 0;
+}
+.seprator {
+    display: inline-block;
+    padding: 0 5px;
+}
+.footer-copyright i.fa { padding: 0 5px }
+.dash {
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+}
+.digit {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 36px;
+    line-height: 40px;
+    overflow: hidden;
+    height: 36px;
+}
+.event-counter { padding: 13px 5px 13px 30px }
+.upcoming-single-fund p { margin: 0 }
+.dash::after {
+    content: "";
+    height: 26px;
+    margin-top: -13px;
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    width: 1px;
+}
+.dash.seconds_dash::after { display: none }
+.single-client img {
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    filter: grayscale(100%);
+    transition: .4s;
+}
+.single-client:hover img {
+    filter: none;
+    -webkit-filter: none;
+}
+#flickr-gallery li {
+    float: left;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+ul#flickr-gallery { margin-left: -10px }
+#flickr-gallery img { float: left }
+.inner-page-title {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+/* --------------------------------------------------------
+12. Internal page CSS
+-----------------------------------------------------------*/
+
+.inner-page-title h2 {
+    border-bottom: 3px solid #eeeeee;
+    font-size: 36px;
+    padding-bottom: 15px;
+    position: relative;
+    text-transform: uppercase;
+}
+.inner-page-title h2::after {
+    bottom: -3px;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 50px;
+}
+.page-subtitle {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    padding: 5px 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.pagination > li > a,
+.pagination > li > span {
+    color: #5c5c5c;
+    padding: 10px 17px;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.pagination li.current a { color: #fff }
+.widget {
+    background: none repeat scroll 0 0 #f7f7f7;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+.widget-title {
+    border-bottom: 3px solid #eeeeee;
+    color: #5c5c5c;
+    font-size: 18px;
+    padding-bottom: 15px;
+    position: relative;
+}
+.widget-title::after {
+    bottom: -3px;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 50px;
+}
+.widget ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.widget ul li { padding: 5px 0 }
+.widget ul li a { color: #5c5c5c }
+ul.causes-category {
+    margin-left: -5%;
+    overflow: hidden;
+}
+ul.causes-category li {
+    float: left;
+    margin-left: 5%;
+    width: 45%;
+}
+ul.causes-category li::before {
+    content: "-";
+    font-size: 16px;
+    margin-right: 5px;
+}
+.widget li a:hover { text-decoration: none }
+.prev-cause-thumb {
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+.single-prev-cause h2 {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+.single-prev-cause h2 a { color: #5c5c5c }
+body a.learnmore {
+    color: #fff;
+    display: inline-block;
+    padding: 5px 15px;
+}
+body a.learnmore:hover {
+    text-decoration: none;
+    background: #222;
+    color: #fff;
+}
+.single-prev-cause {
+    margin-bottom: 26px;
+    overflow: hidden;
+}
+.inner-cause-featured { margin-bottom: 30px }
+.inner-cause-title {
+    color: #5c5c5c;
+    font-size: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.inner-cause-title h2 {
+    color: #5c5c5c;
+    font-size: 26px;
+    font-weight: 400;
+}
+.inner-left-collected {
+    color: #5c5c5c;
+    font-size: 16px;
+}
+.inner-cause-inner { color: #5c5c5c }
+.inner-left-collected strong,
+.inner-right-target strong { font-weight: 700 }
+.inner-right-target { font-size: 16px }
+.inner-casue-meta {
+    font-size: 14px;
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+.inner-cause-stats { }
+.inner-cause-metadata {
+    background: none repeat scroll 0 0 #fafafa;
+    margin-bottom: 30px;
+    padding: 25px;
+}
+.inner-right-target .readmore,
+.inner-cause-content .readmore { border-radius: 0 }
+.donate-steps {
+    border-top: 1px solid #ddd;
+    margin-top: 50px;
+    padding-top: 50px;
+}
+.donate-steps-title h2 {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 400;
+    padding-bottom: 15px;
+    position: relative;
+}
+.donate-steps-title h2::before {
+    background: none repeat scroll 0 0 #eeeeee;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 50%;
+    margin-left: -125px;
+    position: absolute;
+    width: 250px;
+}
+.donate-steps-title h2::after {
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 50%;
+    margin-left: -25px;
+    position: absolute;
+    width: 50px;
+}
+.donate-steps-title {
+    margin-bottom: 50px;
+    text-align: center;
+}
+.donate-three-steps {
+    margin: 0 auto;
+    max-width: 900px;
+    position: relative;
+}
+.single-donate-step {
+    background: none repeat scroll 0 0 #f9f9f9;
+    border: 1px solid #f2f2f2;
+    margin-bottom: 90px;
+    padding: 30px;
+    position: relative;
+    width: 300px;
+}
+.single-donate-step h2 {
+    font-size: 18px;
+    line-height: 25px;
+}
+.donate-step-no {
+    border-radius: 50%;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    height: 100px;
+    padding-top: 20px;
+    position: absolute;
+    right: -200px;
+    text-align: center;
+    width: 100px;
+}
+.donate-step-no::before {
+    background: none repeat scroll 0 0 #ddd;
+    content: "";
+    height: 150px;
+    margin-left: 9px;
+    position: absolute;
+    top: 110px;
+    width: 3px;
+}
+.single-donate-step::after {
+    background: none repeat scroll 0 0 #f9f9f9;
+    border: 1px solid #f2f2f2;
+    content: "";
+    height: 40px;
+    margin-top: -20px;
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 40px;
+    z-index: -1;
+}
+.single-donate-step::before {
+    background: none repeat scroll 0 0 #f9f9f9;
+    content: "";
+    height: 57px;
+    margin-top: -29px;
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    width: 1px;
+}
+.single-donate-step.right-directions { float: right }
+.single-donate-step-wrapper { overflow: hidden }
+.right-directions .donate-step-no {
+    left: -200px;
+    right: inherit;
+}
+.single-donate-step.right-directions::before {
+    left: -1px;
+    right: inherit;
+}
+.single-donate-step.right-directions::after {
+    left: -22px;
+    right: inherit;
+}
+.donate-bottom .readmore {
+    border-radius: 0;
+    font-size: 18px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+}
+.not-found-preview img { margin-left: -15px }
+.not-found-content { margin: 100px 0 }
+.not-found-content h2 {
+    color: #da1313;
+    font-size: 200px;
+    margin-bottom: 0;
+}
+.not-found-content h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+body a.back-to-home {
+    color: #fff;
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 30px;
+}
+.back-to-home i { margin-right: 10px }
+.single-post { margin-bottom: 50px }
+.single-post-content { margin-bottom: 30px }
+.single-post-content iframe {width: 100%;border: none}
+
+/* --------------------------------------------------------
+13. Blog post CSS
+-----------------------------------------------------------*/
+
+#post-carousel { overflow: hidden }
+.post-carousel-control {
+    background: none repeat scroll 0 0 #fff;
+    color: #222;
+    font-size: 25px;
+    height: 40px;
+    transition: .4s;
+    line-height: 38px;
+    margin-top: -20px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 40px;
+}
+.post-carousel-control:hover { color: #fff }
+.post-carousel-control.left { left: -50px }
+.post-carousel-control.right { right: -50px }
+#post-carousel:hover .post-carousel-control.right { right: 0 }
+#post-carousel:hover .post-carousel-control.left { left: 0 }
+.single-post-content i.fa-plus {
+    color: #fff;
+    font-size: 50px;
+    left: -100%;
+    line-height: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: absolute;
+    top: 50%;
+    z-index: 9;
+    transition: .4s;
+}
+.single-post-content a.boxer {
+    display: block;
+    position: relative;
+}
+.single-post-content a.boxer::before {
+    background: none repeat scroll 0 0 #000;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    transform: scale(0);
+    transition: .4s;
+}
+.single-post-content:hover a.boxer::before { transform: scale(1) }
+.single-post-content:hover i.fa-plus { left: 50% }
+.donate-amount-select ul {
+    list-style: outside none none;
+    margin: 0 0 20px;
+    padding: 0;
+}
+.donate-amount-select ul li {
+    background: none repeat scroll 0 0 #ddd;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.donate-form h3 {
+    font-weight: 300;
+    margin: 30px 0;
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+textarea {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.donator-information input[type="text"],
+.donator-information input[type="email"],
+.donator-information textarea { width: 100% }
+input[type="submit"] {
+    border: medium none;
+    color: #fff;
+    padding: 10px 20px;
+}
+html body input[type="submit"]:hover { background: none repeat scroll 0 0 #000 }
+.donator-information { margin-top: 40px }
+#map-canvas {
+    width: 100%;
+    height: 450px;
+}
+#map-canvas img { max-width: none }
+.contact-form {
+    background: none repeat scroll 0 0 #fafafa;
+    border-top: 10px solid;
+    margin-top: -100px;
+    padding: 30px;
+    position: relative;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    background: none repeat scroll 0 0 #ededed;
+    border: medium none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 100%;
+}
+.contact-form::after,
+.contact-form::before {
+    content: "";
+    height: 100px;
+    position: absolute;
+    top: -10px;
+    width: 10px;
+}
+.contact-form::before { left: 0 }
+.contact-form::after { right: 0 }
+.contact-form textarea { height: 190px }
+.contact-info {
+    background: none repeat scroll 0 0 #fafafa;
+    margin-top: 30px;
+    padding: 30px;
+}
+.contact-info-right p i.fa {
+    left: 0;
+    position: absolute;
+    top: 3px;
+}
+.contact-info-right p {
+    padding-left: 25px;
+    position: relative;
+}
+.photo-item {
+    display: block;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.photo-item::after {
+    background: none repeat scroll 0 0 #000;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: scale(0);
+    transition: .4s;
+}
+.photo-item i.fa {
+    color: #fff;
+    font-size: 20px;
+    left: -100%;
+    line-height: 30px;
+    margin-left: -15px;
+    margin-top: -15px;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    z-index: 9;
+    transition: .4s;
+}
+.photo-item:hover:after { transform: scale(1) }
+.photo-item:hover i.fa { left: 50% }
+.page-featured-content { margin-bottom: 50px }
+.inner-page-content { }
+.inner-page-content h3 { margin-bottom: 30px }
+.inner-page-content p { margin-bottom: 20px }
+.about-box {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    overflow: hidden;
+    padding-left: 150px;
+    position: relative;
+}
+.about-box i.fa {
+    color: #fff;
+    font-size: 50px;
+    height: 120px;
+    left: 0;
+    line-height: 120px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 120px;
+}
+.about-box h2 { font-size: 18px }
+.single-volunteer {
+    border: 5px solid #f3f3f3;
+    position: relative;
+    overflow: hidden;
+}
+.single-volunteer img {
+    width: 100%;
+}
+.volunteer-hover {
+    color: #fff;
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    transition: .3s;
+}
+.single-volunteer:hover .volunteer-hover { left: 0 }
+.volunteer-hover::after {
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    transition: .2s;
+    transform: scale(0);
+}
+.single-volunteer:hover .volunteer-hover:after { transform: scale(1) }
+.volunteer-hover-table {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.volunteer-hover-tablecell {
+    display: table-cell;
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+.volunteer-hover-tablecell h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+.volunteer-hover-tablecell p {
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+.volunteer-profiles a {
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 16px;
+    height: 30px;
+    margin: 0 5px;
+    padding-top: 2px;
+    text-align: center;
+    width: 30px;
+}
+.volunteer-profiles a:hover {
+    background: #222;
+    color: #fff;
+}
+.single-post-inner {
+    background: none repeat scroll 0 0 #f7f7f7;
+    padding: 30px;
+}
+.post-inner-featured-content { margin-bottom: 20px }
+.single-post-inner-meta { margin-top: 40px }
+.single-post-inner-meta h2 {
+    color: #636363;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+body .tag-list a {
+    border-radius: 30px;
+    color: #fff;
+    font-size: 12px;
+    margin-right: 10px;
+    padding: 5px 20px;
+}
+body .tag-list a:hover {
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+}
+
+/* --------------------------------------------------------
+14. Comments CSS
+-----------------------------------------------------------*/
+
+.comment-area {
+    background: none repeat scroll 0 0 #f7f7f7;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 30px;
+}
+.comment-area h2 {
+    color: #636363;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+ol.comment-list {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+ol.comment-list li {
+    background: none repeat scroll 0 0 #eeeeee;
+    margin-bottom: 61px;
+    padding: 15px;
+    position: relative;
+}
+ol.comment-list li .reply {
+    bottom: -25px;
+    position: absolute;
+    right: 0;
+}
+.comment-metadata {
+    float: left;
+    font-size: 12px;
+}
+.comment-meta { overflow: hidden }
+.comment-author-img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.comment-content h3 { font-size: 16px }
+.comment-content h3 a { color: #5c5c5c }
+.comment-content span {
+    color: #8c8c8c;
+    font-size: 10px;
+    font-weight: 400;
+    margin-left: 30px;
+}
+.comment-body { color: #8d8c8c }
+.comment-respond {
+    background: none repeat scroll 0 0 #f7f7f7;
+    padding: 30px;
+}
+.comment-reply-title {
+    color: #5c5c5c;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.comment-respond input[type="text"],
+.comment-respond input[type="url"],
+.comment-respond input[type="email"],
+.comment-respond textarea {
+    background: none repeat scroll 0 0 #eeeeee;
+    border: medium none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 100%;
+}
+.comment-respond textarea { height: 190px }
+.single-post-inner { color: #5c5c5c }
+.single-post-inner-title h2 { font-size: 20px }
+.single-post-inner-title { margin-bottom: 30px }
+
+
+/* --------------------------------------------------------
+15. Preloader CSS
+-----------------------------------------------------------*/
+
+#preloader {
+    background: none repeat scroll 0 0 #fff;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+#preloader i {
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    position: absolute;
+    top: 50%;
+}
+
+/* --------------------------------------------------------
+16. Colors CSS
+-----------------------------------------------------------*/
+
+a,
+.upcoming-event-title h3,
+.newsletter-subscribe h2,
+.dash,
+.social-icon a:hover,
+.mainmenu ul.nav.navbar-nav li ul::after,
+.upcoming-event-icon,
+.about-text h2,
+.footer-copyright i.fa,
+.widget li a:hover,
+.call-to-action h2 span,
+.inner-left-collected strong,
+.inner-right-target strong { color: #41C484 }
+.mainmenu ul.nav.navbar-nav li ul,
+.panel-default .panel-heading,
+.cta-btn,
+.pagination li.current a,
+.contact-form { border-color: #41C484 }
+.our-archivement,
+.learnmore,
+.slide-bg:after,
+.header-area::after,
+.mainmenu ul.nav.navbar-nav li ul::before,
+.upcoming-event-wrapper::after,
+.upcoming-single-fund.gained,
+.page-title h2::after,
+.panel-default .panel-heading,
+.progress-bar-success,
+.cause-featured-area a:after,
+.cause-donate,
+.more-event-hover::after,
+.recent-news-title h2::after,
+.featured-news-date,
+.single-post-date,
+.readmore,
+.newsletter-form input[type="submit"],
+.dash::after,
+.inner-page-title h2::after,
+.pagination li.current a,
+.widget-title::after,
+.donate-steps-title h2::after,
+.donate-step-no,
+.back-to-home,
+.post-carousel-control:hover,
+.donate-amount-select ul li:hover,
+.donate-amount-select ul li.active,
+input[type="submit"],
+.contact-form::after,
+.contact-form::before,
+.about-box i.fa,
+.volunteer-hover::after,
+.tag-list a, .left-frame::before, .left-frame::after, .right-frame::before, .right-frame::after, .total-events, .total-donation-stats p, .mainmenu:after { background-color: #41C484 }

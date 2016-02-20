@@ -15,7 +15,7 @@ nunjucks.configure('views', {
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-app.use(express.static('app'));
+app.use('/assets', express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 

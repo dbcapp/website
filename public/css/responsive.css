@@ -1,0 +1,296 @@
+/* Medium Layout: 1280px. */
+@media only screen and (min-width: 992px) and (max-width: 1280px) { 
+    .mainmenu ul li a {
+        color: #fff;
+        padding: 10px 15px;
+    }
+    .archivement-list img { max-width: 85px }
+    .event-sep { display: block }
+    .not-found-content { margin: 60px 0 }
+}
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) { 
+    .logo h1 {
+        font-size: 35px;
+        padding: 15px 0;
+        text-align: center;
+    }
+    .mainmenu ul li a { padding: 10px 15px }
+    .mainmenu {
+        margin-top: 0px;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+    .navbar-right { float: none !important }
+    .navbar-nav > li {
+        float: none;
+        display: inline-block;
+    }
+    .mainmenu ul.nav.navbar-nav li ul { text-align: left }
+    .upcoming-event-area {
+        bottom: inherit;
+        left: inherit;
+        position: relative;
+        width: 100%;
+    }
+    .top-area { height: auto }
+    .slider-area,
+    .slider-area .carousel,
+    .slider-area .carousel-inner,
+    .slider-area .item,
+    .slider-area .single-slide,
+    .slider-area .container,
+    .slider-area .row,
+    .slider-area .row > div,
+    .slider-area .slide-text-table { height: 700px }
+    .about-photo img { margin: 0 auto 30px }
+    .cause-stats,
+    .cause-stats .text-right { text-align: center }
+    .cause-link p {
+        float: none;
+        padding: 10px;
+        text-align: center;
+    }
+    body a.cause-donate {
+        float: none;
+        font-size: 14px;
+        padding: 10px 30px;
+        display: block;
+        text-align: center;
+    }
+    .more-event-single { margin-bottom: 30px }
+    .call-to-action h2 { padding: 0px 235px 0px 0 }
+    .single-related-news img { margin-top: 0 }
+    .single-related-news { overflow: hidden }
+    .footer-widget { padding: 30px 0 }
+    .footer-copyright p { padding: 10px 0 }
+    .footer-copyright,
+    .footer-menu ul { text-align: center }
+    .upcoming-event-heading { padding: 20px 40px }
+    .upcoming-event-top { padding: 15px 0 }
+    .dash_title { display: block }
+    .page-subtitle { position: relative }
+    .inner-casue-meta {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .inner-right-target { text-align: left }
+    .donate-step-no::before {
+        right: 136px;
+        top: 112px;
+        transform: rotate(34deg);
+    }
+    .right-directions .donate-step-no::before {
+        right: -50px;
+        transform: rotate(-35deg);
+    }
+    .not-found-preview { display: none }
+    .not-found-content {
+        margin: 60px 0;
+        text-align: center;
+    }
+    .single-volunteer { margin-bottom: 30px }
+    .about-text {
+        margin-left: 0;
+    }
+    .slide-text-table {
+        padding-bottom: 0;
+        padding-top: 150px;
+    }   
+.our-stats {margin-bottom: 20px;}   
+}
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px) { 
+    .navbar-toggle {
+        border-color: #fff;
+        float: none;
+        margin: 10px auto;
+    }
+    .navbar-toggle .icon-bar { background: none repeat scroll 0 0 #fff }
+    .top-area { height: auto }
+    .slider-area,
+    .slider-area .carousel,
+    .slider-area .carousel-inner,
+    .slider-area .item,
+    .slider-area .single-slide,
+    .slider-area .container,
+    .slider-area .row,
+    .slider-area .row > div,
+    .slider-area .slide-text-table { height: 500px }
+    .upcoming-event-area {
+        bottom: inherit;
+        left: inherit;
+        position: relative;
+        width: 100%;
+    }
+    .header-top-area { padding: 10px 0 }
+    .header-top-left p {
+        display: inline-block;
+        float: none;
+        margin: 5px;
+    }
+    .header-top-left,
+    .social-icon { text-align: center }
+    .slide-text-cell h2 {
+        font-size: 25px;
+        margin: 5px 0;
+    }
+    .logo h1 {
+        font-size: 25px;
+        padding: 15px 0;
+        float: left
+    }
+    .logo { overflow: hidden}
+    .navbar-header { float: right }
+    .slide-control {
+        font-size: 50px;
+        line-height: 50px;
+        margin-top: -25px;
+    }
+    .slide-control.right { right: 10px }
+    .slide-control.left { left: 10px }
+    .about-text {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    .cause-stats,
+    .cause-stats .text-right { text-align: center }
+    .cause-link p {
+        float: none;
+        padding: 10px;
+        text-align: center;
+    }
+    body a.cause-donate {
+        float: none;
+        font-size: 14px;
+        padding: 10px 30px;
+        display: block;
+        text-align: center;
+    }
+    .more-event-single,
+    .single-cause,
+    .featured-news-content,
+    .single-related-news { margin-bottom: 30px }
+    .call-to-action h2 { padding: 0px 235px 0px 0 }
+    .single-related-news img { margin-top: 0 }
+    .single-related-news { overflow: hidden }
+    .footer-widget {
+        padding: 15px 0;
+        overflow: hidden;
+    }
+    .footer-copyright p { padding: 10px 0 }
+    .footer-copyright,
+    .footer-menu ul { text-align: center }
+    .cause-view-all { margin-top: 0 }
+    .call-to-action h2 { padding: 0 }
+    body .cta-btn {
+        margin-top: 20px;
+        position: relative;
+        right: 0;
+        top: 0;
+    }
+    .archivement-list img { max-width: 35% }
+    .clients-list .owl-nav {
+        bottom: 0;
+        font-size: 20px;
+        left: 0;
+        position: absolute;
+        top: inherit;
+    }
+    .clients-list .owl-nav > div.owl-prev { left: 0 }
+    .clients-list .owl-nav div.owl-next {
+        left: 30px;
+        right: inherit;
+    }
+    .site-title,
+    .wid-title { margin-bottom: 15px }
+    .footer-widget .social-icon { text-align: left }
+    .footer-menu ul li a { padding: 10px }
+    .featured-news-content img,
+    .cause-featured-area img { width: 100% }
+    .upcoming-event-heading { padding: 20px 40px }
+    .upcoming-event-top { padding: 15px 0 }
+    .dash_title { display: block }
+    .dash.hours_dash::after { display: none }
+    .upcoming-single-fund h2 { font-size: 20px }
+    .page-subtitle { position: relative }
+    .event-sep { width: 10px }
+    .inner-right-target { text-align: left }
+    .inner-casue-meta {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .single-donate-step::after,
+    .single-donate-step::before,
+    .donate-step-no::before { display: none }
+    .donate-step-no {
+        border-radius: 0;
+        font-size: 14px;
+        height: 30px;
+        padding-top: 5px;
+        right: 0;
+        top: 0;
+        width: 30px;
+    }
+    .single-donate-step {
+        margin-bottom: 30px;
+        width: auto;
+    }
+    .single-donate-step.right-directions { float: none }
+    .right-directions .donate-step-no {
+        left: inherit;
+        right: 0;
+    }
+    .not-found-preview { display: none }
+    .not-found-content {
+        margin: 40px 0;
+        text-align: center;
+    }
+    .not-found-content h2 { font-size: 100px }
+    .single-volunteer { margin-bottom: 30px }
+    
+    
+    .mainmenu ul.nav.navbar-nav li ul {
+      border: none;
+      left: 0;
+      margin: 0;
+      opacity: 1;
+      padding: 0;
+      position: relative;
+      top: inherit;
+      transition: all 0.4s ease 0s;
+      visibility: visible;
+      width: auto;
+      z-index: 99;
+      font-size: 90%;
+      padding-left: 20px;
+    }   
+    .mainmenu ul.nav.navbar-nav li ul::before, .mainmenu ul.nav.navbar-nav li ul::after {display: none}
+    .mainmenu ul.nav.navbar-nav li:hover ul {top: 0}
+    .header-area::after {opacity: .8}
+    .mainmenu {margin-top: 0;}
+    .header-area {position: relative!important;}
+    .slide-text-table {
+        padding-bottom: 0;
+        padding-top: 100px;
+    }  
+    .mainmenu:after {display: block}
+    .mainmenu {padding: 0 10px;}
+    .upcoming-event-wrapper::after {opacity: 1}
+    .upcoming-event {margin: 10px;}
+    
+    
+    .total-events {position: relative; width: 100%;padding: 15px;margin-bottom: 15px;}
+    .total-donation-stats p:last-child {margin-left: 0;}
+    .total-events::after, .total-donation-stats p::before {display: none}
+    .total-donation-stats {padding-left: 0;}
+    .recent-news-title a {position: relative; top: 10px;}
+}
+/* Wide Mobile Layout: 480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) { 
+    .total-events {position: absolute; width: 110px;padding: 16px 32px 17px 13px;margin-bottom: 0px;}
+    .total-donation-stats p:last-child {margin-left: -15px;}
+    .total-events::after, .total-donation-stats p::before {display: block}
+    .total-donation-stats {padding-left: 110px;}
+    .recent-news-title a {position: absolute; top: 15px;}
+}
