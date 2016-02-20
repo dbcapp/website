@@ -1,0 +1,41 @@
+  {% extends "partials/base.html" %}
+
+  {% block content %}
+  <section class="recent-causes section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-breadcroumb">
+            <p><a href="/">Home</a> / Login</p>
+          </div>
+
+          <div class="inner-page-title">
+            <h2>Login</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <form class="login" data-model="auth">
+            <div class="contact-form" style="margin: 0 auto; width: 570px">
+              <div class="row">
+                <p class="helper-message" style="width: 94%; margin: 0 auto 10px;">Email wrong</p>
+
+                <div class="col-md-12">
+                  <p><input type="email" class="email" placeholder="Email"></p>
+                  <p><input type="password" class="password" placeholder="Passsword"></p>
+                </div>
+              </div>
+              <p class="text-center"><input type="submit" value="Login"></p>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div><!-- /container -->
+  </section><!-- /recent-causes -->
+  {% endblock %}

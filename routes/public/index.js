@@ -13,4 +13,16 @@ router.get('/about', (req, res) => {
   });
 });
 
+router.get('/find', (req, res) => {
+  res.render('find', {
+    classBody: "page"
+  });
+});
+
+router.get('/login', (req, res) => {
+  res.render('login', {
+    classBody: "page"
+  });
+});
+
 module.exports = router;
