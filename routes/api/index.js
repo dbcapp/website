@@ -12,6 +12,10 @@ router.use((err, req, res, next) => { // jshint ignore:line
   };
   errorPayload.stack = err.stack;
 
+  if (err.originalError) {
+    errorPayload.originalError = err.originalError.message || JSON.stringify(err.originalError);
+  }
+
   res
     .status(err.status || 500)
     .json(errorPayload);

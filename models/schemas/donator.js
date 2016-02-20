@@ -2,19 +2,15 @@
 
 const path = require('path');
 const mongoose = require('mongoose');
-const employeeSchema = require('./employee');
 const crate = require('mongoose-crate');
 const LocalFS = require('mongoose-crate-localfs');
 const GraphicsMagic = require('mongoose-crate-gm');
 
-const schema = new mongoose.Schema({
-  employees: [employeeSchema],
-  tags: [{type: String}]
-});
+const schema = new mongoose.Schema({});
 
 schema.plugin(crate, {
   storage: new LocalFS({
-    directory: path.join(path.resolve('./'), 'public/uploads/organization')
+    directory: path.join(path.resolve('./'), 'public/uploads/donator')
   }),
   fields: {
     picture: {

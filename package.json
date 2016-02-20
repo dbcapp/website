@@ -7,7 +7,8 @@
     "pm2": "^1.0.1"
   },
   "scripts": {
-    "start": "node ./server"
+    "start": "pm2 start ecosystem.json",
+    "logs": "pm2 logs --lines=0"
   },
   "dependencies": {
     "bcrypt": "^0.8.5",
@@ -20,6 +21,7 @@
     "lodash": "^4.5.0",
     "mongoose": "^4.4.4",
     "mongoose-crate": "^1.0.10",
+    "mongoose-crate-gm": "^1.0.0",
     "mongoose-crate-localfs": "^1.1.1",
     "mongoose-paginate": "^5.0.0",
     "nunjucks": "^2.3.0",
