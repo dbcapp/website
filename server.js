@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
+const passport = require('passport');
 const routes = require('./routes');
 const app = express();
 
@@ -18,6 +19,8 @@ app.set('views', __dirname + '/views');
 app.use('/assets', express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(passport.initialize());
 
 app.use('/', routes);
 

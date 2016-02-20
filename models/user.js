@@ -4,6 +4,7 @@ const _ = require('lodash');
 const mongoose = require('mongoose');
 const crypt = require('../helpers/crypt');
 const schema = require('./schemas/user');
+const jwt = require('../helpers/jwt');
 
 schema.methods.passwordMatch = function(password) {
   return crypt.compare(password, this.password);

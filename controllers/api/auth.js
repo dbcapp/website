@@ -1,13 +1,9 @@
 'use strict';
 
 exports.auth = (req, res, next) => {
-  req.entities = {
-    user: req.user
-  };
-
   res.json({
     token: req.user.getToken(),
-    user
+    user: req.user
   });
   res.end();
 };
