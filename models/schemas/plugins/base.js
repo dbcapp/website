@@ -5,30 +5,30 @@ const mongoosePaginate = require('mongoose-paginate');
 
 module.exports = (schema) => {
   // Schema
-  schema.add({created_at: {type: Date, default: Date.now}});
-  schema.add({updated_at: {type: Date}});
-  schema.add({deleted_at: {type: Date, default: null}});
+  schema.add({createdAt: {type: Date, default: Date.now}});
+  schema.add({updatedAt: {type: Date}});
+  schema.add({deletedAt: {type: Date, default: null}});
 
   // Hooks
   schema.pre('find', function(next) {
-    if (JSON.stringify(this.where()._conditions).indexOf('deleted_at') === -1) {
-      this.where('deleted_at', null);
+    if (JSON.stringify(this.where()._conditions).indexOf('deletedAt') === -1) {
+      this.where('deletedAt', null);
     }
     next();
   });
   schema.pre('findOne', function(next) {
-    if (JSON.stringify(this.where()._conditions).indexOf('deleted_at') === -1) {
-      this.where('deleted_at', null);
+    if (JSON.stringify(this.where()._conditions).indexOf('deletedAt') === -1) {
+      this.where('deletedAt', null);
     }
     next();
   });
 
   schema.pre('findOneAndUpdate', function(next) {
-    this.update({}, {$set: {updated_at: Date.now()}});
+    this.update({}, {$set: {updatedAt: Date.now()}});
     next();
   });
   schema.pre('update', function(next) {
-    this.update({}, {$set: {updated_at: Date.now()}});
+    this.update({}, {$set: {updatedAt: Date.now()}});
     next();
   });
   schema.pre('save', function(next) {
@@ -36,13 +36,13 @@ module.exports = (schema) => {
     next();
   });
   schema.pre('save', function(next) {
-    this.set('updated_at', Date.now());
+    this.set('updateAt', Date.now());
     next();
   });
 
   // Schema functions
   schema.methods.removeLogical = function() {
-    this.deleted_at = Date.now();
+    this.deletedAt = Date.now();
 
     return this.save();
   };
