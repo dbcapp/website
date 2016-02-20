@@ -21,6 +21,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/', routes);
 
+require('./helpers/db').connect();
+
 app.listen(3000, function() {
   console.log('Server listening on port 3000');
 });
