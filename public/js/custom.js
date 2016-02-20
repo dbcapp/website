@@ -11,6 +11,7 @@ $(function() {
   App = {
     init: function() {
       this.login();
+      this.logout();
       this.register();
       this.afterRegister();
     },
@@ -29,8 +30,8 @@ $(function() {
           })
           .done(function(response) {
             $('.helper-message').removeClass("bg-danger").addClass("bg-success").html(response.message);
-            localstorage.setItem('token', response.token);
-            localstorage.setItem('user', response.user);
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('user', response.user);
           })
           .fail(function(response) {
             $('.helper-message').removeClass("bg-success").addClass("bg-danger").html(response.message);
@@ -38,6 +39,14 @@ $(function() {
         }
         return false;
       })
+    },
+    logout: function() {
+      if($('.logout-system').length > 0) {
+        if(localStorage.getItem('token')){
+          localStorage.clear();
+        }
+        window.location = "/";
+      }
     },
     register: function() {
       $('.tags-tokenizer').select2({
