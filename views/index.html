@@ -1,5 +1,7 @@
-  {% include "partials/header.html" %}
+  {% set base = "home" %}
+  {% extends "partials/base.html" %}
 
+  {% block content %}
   <section class="about-us section-padding">
     <div class="container">
       <div class="row">
@@ -400,5 +402,4 @@
       </div>
     </div>
   </div>
-
-  {% include "partials/footer.html" %}
+  {% endblock %}

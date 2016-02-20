@@ -33,149 +33,159 @@
   <![endif]-->
 </head>
 
-<body>
+<body class="{{ classBody }}">
   <div id="preloader"><i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i></div>
 
-  <section class="top-area">
-    <div class="header-wrapper">
+    {% if base == "home" %}
+      <section class="top-area">
+        <div class="header-wrapper">
+          <div class="header-area">
+            {% include "partials/menu.html" %}
+          </div>
+        </div><!-- /header-wrapper -->
+
+        <div class="slider-area">
+          <div class="single-slide">
+            <div class="slide-bg slide-1"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                  <div class="slide-text-table">
+                    <div class="slide-text-cell">
+                      <h2 class="animated">Help The <span>Child</span></h2>
+                      <h2 class="animated">Make <span>Better</span> World</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="single-slide">
+            <div class="slide-bg slide-2"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                  <div class="slide-text-table">
+                    <div class="slide-text-cell">
+                      <h2 class="animated">Save The <span>Tiger</span></h2>
+                      <h2 class="animated">Save The <span>Nature</span></h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /slider-area -->
+
+        <div class="upcoming-event-area wow fadeInUp">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-lg-offset-1">
+                <div class="upcoming-event-wrapper">
+                  <div class="upcoming-event">
+                    <div class="upcoming-event-top">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="upcoming-event-title">
+                            <div class="upcoming-event-icon">
+                              <i class="fa fa-calendar"></i>
+                            </div>
+                            <h3>Upcoming Event</h3>
+                            <p><i class="fa fa-clock-o"></i> 12:00 PM <i class="fa fa-calendar"></i> 26 March, 2015</p>
+                          </div>
+                        </div>
+
+                        <div class="col-md-7">
+                          <div class="upcoming-event-heading">
+                            <h2><a href="cause-single.html">Education for every children - A Program for Street Children</a></h2>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="upcoming-event-bottom">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="event-counter">
+
+                            <div class="row">
+                              <!-- START COUNTDOWN -->
+                              <div id="countdown_dashboard">
+                                <!-- DAYS -->
+                                <div class="col-md-3 col-sm-3 col-xs-6 dash-glob" id="days-animation">
+                                  <div class="dash days_dash">
+                                    <div class="digit">0</div>
+                                    <div class="digit">0</div>
+                                    <span class="dash_title">Days</span>
+                                  </div>
+                                </div>
+
+                                <!-- HOURS -->
+                                <div class="col-md-3 col-sm-3 col-xs-6 dash-glob" id="hours-animation">
+                                  <div class="dash hours_dash">
+                                    <div class="digit">0</div>
+                                    <div class="digit">0</div>
+                                    <span class="dash_title">Hours</span>
+                                  </div>
+                                </div>
+
+                                <!-- MINUTES -->
+                                <div class="col-md-3 col-sm-3 col-xs-6 dash-glob" id="minutes-animation">
+                                  <div class="dash minutes_dash">
+                                    <div class="digit">0</div>
+                                    <div class="digit">0</div>
+                                    <span class="dash_title">Minutes</span>
+                                  </div>
+                                </div>
+
+                                <!-- SECONDS -->
+                                <div class="col-md-3 col-sm-3 col-xs-6 dash-glob" id="seconds-animation">
+                                  <div class="dash seconds_dash">
+                                    <div class="digit">0</div>
+                                    <div class="digit">0</div>
+                                    <span class="dash_title">Seconds</span>
+                                  </div>
+                                </div>
+
+                              </div>
+                              <!-- END COUNTDOWN -->
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-7">
+                          <div class="upcoming-event-fund">
+                            <div class="upcoming-single-fund target">
+                              <h2>$ <span class="counter">9999</span></h2>
+                              <p>target</p>
+                            </div>
+                            <div class="upcoming-single-fund gained">
+                              <h2>$ <span class="counter">6407</span></h2>
+                              <p>gained</p>
+                            </div>
+                            <div class="upcoming-single-fund donators">
+                              <h2><span class="counter">124</span></h2>
+                              <p>donators</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /upcoming-event-area -->
+      </section><!-- /top-area -->
+
+    {% else %}
+
       <div class="header-area">
         {% include "partials/menu.html" %}
+
+        <span style="display:none" id="countdown_dashboard"></span>
+        <span style="display:none" id="map-canvas"></span>
       </div>
-    </div><!-- /header-wrapper -->
-
-    <div class="slider-area">
-      <div class="single-slide">
-        <div class="slide-bg slide-1"></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-              <div class="slide-text-table">
-                <div class="slide-text-cell">
-                  <h2 class="animated">Help The <span>Child</span></h2>
-                  <h2 class="animated">Make <span>Better</span> World</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="single-slide">
-        <div class="slide-bg slide-2"></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-              <div class="slide-text-table">
-                <div class="slide-text-cell">
-                  <h2 class="animated">Save The <span>Tiger</span></h2>
-                  <h2 class="animated">Save The <span>Nature</span></h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="upcoming-event-area wow fadeInUp">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 col-lg-offset-1">
-            <div class="upcoming-event-wrapper">
-              <div class="upcoming-event">
-                <div class="upcoming-event-top">
-                  <div class="row">
-                    <div class="col-md-5">
-                      <div class="upcoming-event-title">
-                        <div class="upcoming-event-icon">
-                          <i class="fa fa-calendar"></i>
-                        </div>
-                        <h3>Upcoming Event</h3>
-                        <p><i class="fa fa-clock-o"></i> 12:00 PM <i class="fa fa-calendar"></i> 26 March, 2015</p>
-                      </div>
-                    </div>
-
-                    <div class="col-md-7">
-                      <div class="upcoming-event-heading">
-                        <h2><a href="cause-single.html">Education for every children - A Program for Street Children</a></h2>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="upcoming-event-bottom">
-                  <div class="row">
-                    <div class="col-md-5">
-                      <div class="event-counter">
-
-                        <div class="row">
-                          <!-- START COUNTDOWN -->
-                          <div id="countdown_dashboard">
-                            <!-- DAYS -->
-                            <div class="col-md-3 col-sm-3 col-xs-6 dash-glob" id="days-animation">
-                              <div class="dash days_dash">
-                                <div class="digit">0</div>
-                                <div class="digit">0</div>
-                                <span class="dash_title">Days</span>
-                              </div>
-                            </div>
-
-                            <!-- HOURS -->
-                            <div class="col-md-3 col-sm-3 col-xs-6 dash-glob" id="hours-animation">
-                              <div class="dash hours_dash">
-                                <div class="digit">0</div>
-                                <div class="digit">0</div>
-                                <span class="dash_title">Hours</span>
-                              </div>
-                            </div>
-
-                            <!-- MINUTES -->
-                            <div class="col-md-3 col-sm-3 col-xs-6 dash-glob" id="minutes-animation">
-                              <div class="dash minutes_dash">
-                                <div class="digit">0</div>
-                                <div class="digit">0</div>
-                                <span class="dash_title">Minutes</span>
-                              </div>
-                            </div>
-
-                            <!-- SECONDS -->
-                            <div class="col-md-3 col-sm-3 col-xs-6 dash-glob" id="seconds-animation">
-                              <div class="dash seconds_dash">
-                                <div class="digit">0</div>
-                                <div class="digit">0</div>
-                                <span class="dash_title">Seconds</span>
-                              </div>
-                            </div>
-
-                          </div>
-                          <!-- END COUNTDOWN -->
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-7">
-                      <div class="upcoming-event-fund">
-                        <div class="upcoming-single-fund target">
-                          <h2>$ <span class="counter">9999</span></h2>
-                          <p>target</p>
-                        </div>
-                        <div class="upcoming-single-fund gained">
-                          <h2>$ <span class="counter">6407</span></h2>
-                          <p>gained</p>
-                        </div>
-                        <div class="upcoming-single-fund donators">
-                          <h2><span class="counter">124</span></h2>
-                          <p>donators</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section><!-- /top-area -->
+    {% endif %}
