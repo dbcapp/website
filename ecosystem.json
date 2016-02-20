@@ -4,7 +4,7 @@
       "name": "website",
       "script": "server.js",
       "watch": true,
-      "ignore_watch": ["./node_modules", "./public/uploads/**/*"]
+      "ignore_watch": ["./node_modules", "./public/uploads/**/*", "./.git"]
     }
   ]
 }
