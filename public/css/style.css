@@ -1401,7 +1401,7 @@ html body input[type="submit"]:hover { background: none repeat scroll 0 0 #000 }
 #map-canvas img { max-width: none }
 .contact-form {
     background: none repeat scroll 0 0 #fafafa;
-    border-top: 10px solid;
+    border: 10px solid;
     margin-top: -100px;
     padding: 30px;
     position: relative;
