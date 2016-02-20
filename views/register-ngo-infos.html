@@ -6,11 +6,11 @@
       <div class="row">
         <div class="col-md-12">
           <div class="page-breadcroumb">
-            <p><a href="/">Home</a> / <a href="/register">Register</a> / Organization</p>
+            <p><a href="/">Home</a> / <a href="/register">Register</a> / Organization / {{ org.organization.name }}</p>
           </div>
 
           <div class="inner-page-title">
-            <h2>Register - Organization</h2>
+            <h2>Organization - {{ org.organization.name }}</h2>
           </div>
         </div>
       </div>
@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-md-12">
 
-          <form class="register-organization">
+          <form class="after-register">
             <div class="contact-form" style="margin: 0 auto;">
               <div class="row">
                 <p class="helper-message" style="width: 94%; margin: 0 auto 10px;"></p>
@@ -47,10 +47,6 @@
 
                 <div class="col-md-12">
                   <p class="text-center"><h1>Informations</h1></p>
-                  
-                  <div class="col-md-12">
-                    <p><input type="text" class="name-organization" placeholder="Name Organization"></p>
-                  </div>
 
                   <div class="col-md-6">
                     <p><input type="text" class="address" placeholder="Address"></p>

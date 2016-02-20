@@ -8,6 +8,7 @@ const LocalFS = require('mongoose-crate-localfs');
 const GraphicsMagic = require('mongoose-crate-gm');
 
 const schema = new mongoose.Schema({
+  name: {type: String},
   description: {type: String},
   address: {type: String},
   number: {type: Number},

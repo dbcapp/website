@@ -3,10 +3,16 @@
 $(function() {
   var App = App || {};
 
+  $.ajaxSetup({
+    contentType: "application/json; charset=UTF-8",
+    dataType: "json"
+  });
+
   App = {
     init: function() {
       this.login();
       this.register();
+      this.updateOrganization();
     },
     login: function() {
       var email = $('.login').find('.email');
@@ -22,12 +28,12 @@ $(function() {
             data: {email: email.val(), password: password.val()}
           })
           .done(function(response) {
-            $('.helper-message').removeClass("bg-danger").addClass("bg-success").html(response.responseJSON.message);
-            localstorage.setItem('token', response.responseJSON.token);
-            localstorage.setItem('user', response.responseJSON.user);
+            $('.helper-message').removeClass("bg-danger").addClass("bg-success").html(response.message);
+            localstorage.setItem('token', response.token);
+            localstorage.setItem('user', response.user);
           })
           .fail(function(response) {
-            $('.helper-message').removeClass("bg-success").addClass("bg-danger").html(response.responseJSON.message);
+            $('.helper-message').removeClass("bg-success").addClass("bg-danger").html(response.message);
           });
         }
         return false;
@@ -43,9 +49,11 @@ $(function() {
         // remove all class
         $('.helper-message').removeClass("bg-danger").removeClass('bg-success').html("");
 
+        var name = $('.register-organization').find('.name');
         var email = $('.register-organization').find('.email');
         var password = $('.register-organization').find('.password');
         var confirmPassword = $('.register-organization').find('.confirmPassword');
+        var nameOrganization = $('.register-organization').find('.name-organization');
         var address = $('.register-organization').find('.address');
         var number = $('.register-organization').find('.number');
         var city = $('.register-organization').find('.city');
@@ -53,7 +61,7 @@ $(function() {
         var tags = $('.register-organization').find('.tags-tokenizer');
         var sendTags = tags.val().split(',');
 
-        if( email.val() != "" || password.val() != "" || tags.val() != "") {
+        if( email.val() == "" || password.val() == "" || tags.val() == "" || nameOrganization.val() == "") {
           $('.helper-message').addClass("bg-danger").html("Complete all fields");
         } else if (password.val() != confirmPassword.val()) {
           $('.helper-message').addClass("bg-danger").html("You password not match");
@@ -62,23 +70,25 @@ $(function() {
           $.ajax({
             url: '/api/registration/organization',
             method: "POST",
-            data: {
+            data: JSON.stringify({
+              name: name.val(),
               email: email.val(),
               password: password.val(),
               organization: {
+                name: nameOrganization.val(),
                 address: address.val(),
                 number: number.val(),
                 city: city.val(),
                 state: state.val(),
                 tags: sendTags
               }
-            }
+            })
           })
           .done(function(response) {
-            window.location = "/register/organization/"+response.responseJSON.id;
+            window.location = "/register/organization/"+response.id;
           })
           .fail(function(response) {
-            $('.helper-message').removeClass("bg-success").addClass("bg-danger").html(response.responseJSON.message);
+            $('.helper-message').removeClass("bg-success").addClass("bg-danger").html(response.message);
           });
 
           return false;
@@ -109,13 +119,16 @@ $(function() {
             }
           })
           .done(function(response) {
-            $('.helper-message').removeClass("bg-danger").addClass("bg-success").html(response.responseJSON.message);
+            $('.helper-message').removeClass("bg-danger").addClass("bg-success").html(response.message);
           })
           .fail(function(response) {
-            $('.helper-message').removeClass("bg-success").addClass("bg-danger").html(response.responseJSON.message);
+            $('.helper-message').removeClass("bg-success").addClass("bg-danger").html(response.message);
           });
         }
       });
+    },
+    afterRegister: function() {
+
     }
   };
 
