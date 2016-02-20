@@ -5,7 +5,7 @@ const UserModel = require('../../models/user');
 const saveTmpFiles = require('../../helpers/saveTmpFile');
 const fs = require('fs');
 
-exports.donator = (req, res, next) => {
+exports.createDonator = (req, res, next) => {
   let data = _.pick(req.body, 'name', 'email', 'password', 'donator');
   data.donator = _.pick(data.donator, 'picture');
 
@@ -38,8 +38,8 @@ exports.donator = (req, res, next) => {
 
   savePromise
     .then(() => user.save())
-    .then(() => {
-      res.json({created: true});
+    .then((document) => {
+      res.json({created: true, id: document.id});
       res.end();
     })
     .catch((error) => {
@@ -50,7 +50,7 @@ exports.donator = (req, res, next) => {
     });
 };
 
-exports.organization = (req, res, next) => {
+exports.createOrganization = (req, res, next) => {
   let data = _.pick(req.body, 'name', 'email', 'password', 'organization');
   data.organization = _.pick(data.organization, 'tags', 'picture', 'employees');
 
@@ -82,8 +82,8 @@ exports.organization = (req, res, next) => {
 
   savePromise
     .then(() => user.save())
-    .then(() => {
-      res.json({created: true});
+    .then((document) => {
+      res.json({created: true, id: document.id});
       res.end();
     })
     .catch((error) => {
