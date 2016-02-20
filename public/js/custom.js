@@ -6,6 +6,7 @@ $(function() {
   App = {
     init: function() {
       this.login();
+      this.register();
     },
     login: function() {
       var email = $('.login').find('.email');
@@ -31,6 +32,12 @@ $(function() {
         }
         return false;
       })
+    },
+    register: function() {
+      $('.tags').select2({
+        tags: true,
+        tokenSeparators: [',', ' ']
+      });
     }
   };
 

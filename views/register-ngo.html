@@ -1,0 +1,85 @@
+  {% extends "partials/base.html" %}
+
+  {% block content %}
+  <section class="recent-causes section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-breadcroumb">
+            <p><a href="/">Home</a> / <a href="/register">Register</a> / NGO</p>
+          </div>
+
+          <div class="inner-page-title">
+            <h2>Register - NGO</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <form class="register-user">
+            <div class="contact-form" style="margin: 0 auto;">
+              <div class="row">
+                <p class="helper-message" style="width: 94%; margin: 0 auto 10px;"></p>
+
+                <div class="col-md-12">
+                  <div class="col-md-6">
+                    <p><input type="text" class="name" placeholder="Name"></p>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p><input type="email" class="email" placeholder="Email"></p>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p><input type="password" class="password" placeholder="Passsword"></p>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p><input type="password" class="password" placeholder="Confirm passsword"></p>
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="col-md-12">
+                  <p class="text-center"><h1>Informations</h1></p>
+
+                  <div class="col-md-6">
+                    <p><input type="text" class="address" placeholder="Address"></p>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p><input type="text" class="number" placeholder="Number"></p>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p><input type="text" class="city" placeholder="City"></p>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p><input type="text" class="state" placeholder="State"></p>
+                  </div>
+
+                  <div class="col-md-12">
+                    <p>
+                      <label for="tags">Tags</label>
+                      <input type="text" class="as" name="organization[tags]">
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-center">
+                <input type="submit" value="Register">
+              </p>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div><!-- /container -->
+  </section><!-- /recent-causes -->
+  {% endblock %}

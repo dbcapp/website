@@ -25,4 +25,22 @@ router.get('/login', (req, res) => {
   });
 });
 
+router.get('/register', (req, res) => {
+  res.render('register', {
+    classBody: "page"
+  });
+});
+
+router.get('/register/user', (req, res) => {
+  res.render('register-user', {
+    classBody: "page"
+  });
+});
+
+router.get('/register/ngo', (req, res) => {
+  res.render('register-ngo', {
+    classBody: "page"
+  });
+});
+
 module.exports = router;
