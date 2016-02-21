@@ -10,7 +10,18 @@ router.use('/organization', require('./organization'));
 
 
 router.get('/', (req, res) => {
-  res.render('index');
+
+  User.find({type: "Organization"})
+    .limit(3)
+    .sort('-createdAt')
+    .exec()
+    .then((response) => {
+      response = response.map((item) => _.omit(item.toObject({virtuals: true}), 'password'));
+
+      res.render('index', {
+        lastOrgs: response
+      });
+    });
 });
 
 router.get('/login', (req, res) => {
@@ -33,7 +44,7 @@ router.get('/find', (req, res) => {
   const limit = 12;
   let skip = 0;
   let totalPages = 0;
-  let term = false;
+  let term = "";
   let q = {type: 'Organization'};
 
   if(req.query.hasOwnProperty('page')){
@@ -43,8 +54,10 @@ router.get('/find', (req, res) => {
   if(req.query.hasOwnProperty('title')){
     q = {
       type: 'Organization',
-      'organization.name': new RegExp(req.query.term, 'i')
+      'organization.name': new RegExp(req.query.title, 'i')
     };
+
+    term = req.query.title;
   }
 
   if(req.query.hasOwnProperty('tags')) {
@@ -62,7 +75,8 @@ router.get('/find', (req, res) => {
 
       res.render('find', {
         classBody: "page",
-        orgs: response
+        orgs: response,
+        term: term
       });
     });
 });
