@@ -7,6 +7,7 @@ const _ = require('lodash');
 
 router.use('/register', require('./register'));
 router.use('/organization', require('./organization'));
+router.use('/auth', require('./auth'));
 
 
 router.get('/', (req, res) => {
@@ -22,16 +23,6 @@ router.get('/', (req, res) => {
         lastOrgs: response
       });
     });
-});
-
-router.get('/login', (req, res) => {
-  res.render('login', {
-    classBody: "page"
-  });
-});
-
-router.get('/logout', (req, res) => {
-  res.render('logout');
 });
 
 router.get('/about', (req, res) => {
