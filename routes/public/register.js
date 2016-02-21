@@ -7,6 +7,7 @@ const User = require('../../models/user');
 const _ = require('lodash');
 const saveTmpFiles = require('../../helpers/saveTmpFile');
 const fs = require('fs');
+const multipart = require('connect-multiparty')();
 
 router.get('/', (req, res) => {
   res.render('register/choose', {
@@ -146,11 +147,16 @@ router.get('/organization/:id', (req, res) => {
     .then((org) => {
       org = _.omit(org.toObject({virtuals: true}), 'password');
 
-      res.render('register/organization-info', {
-        classBody: "page",
-        org: org,
-        response: req.flash()
-      });
+      User.find({type: "Donator"})
+        .exec()
+        .then((people) => {
+          res.render('register/organization-info', {
+            classBody: "page",
+            org: org,
+            response: req.flash(),
+            people: people
+          });
+        })
     });
 });
 
@@ -218,13 +224,14 @@ router.post('/organization', (req, res) => {
   }
 });
 
-router.put('/organization/:id', (req, res) => {
+router.post('/organization/:id', multipart, (req, res) => {
   let id = req.params.id;
-  let data = _.pick(req.body, 'description');
-  data.organization = _.pick(data.organization, 'tags', 'picture', 'employees');
+  let data = {};
+  data.organization = _.pick(req.body, 'description', 'employees');
+  data.organization.picture = req.files.picture;
 
   let user = null;
-  let savePromise = UserModel.findOne({_id: id})
+  let savePromise = User.findOne({_id: id})
     .then((existingUser) => {
       if (!existingUser) {
         req.flash('error', 'User does not exists');
