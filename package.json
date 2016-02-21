@@ -19,6 +19,7 @@
     "glob-promise": "^1.0.6",
     "jsonwebtoken": "^5.7.0",
     "lodash": "^4.5.0",
+    "moment": "^2.11.2",
     "mongoose": "^4.4.4",
     "mongoose-crate": "^1.0.10",
     "mongoose-crate-gm": "^1.0.0",

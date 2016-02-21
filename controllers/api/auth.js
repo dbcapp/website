@@ -5,7 +5,7 @@ const _ = require('lodash');
 exports.auth = (req, res, next) => {
   res.json({
     token: req.user.getToken(),
-    user: _.omit(req.user, 'password')
+    user: _.omit(req.user.toObject(), 'password')
   });
   res.end();
 };

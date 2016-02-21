@@ -2,9 +2,25 @@
 
 const express = require('express');
 const router = express.Router();
+const User = require('../../models/user');
+const _ = require('lodash');
+
+router.use('/register', require('./register'));
+router.use('/organization', require('./organization'));
+
 
 router.get('/', (req, res) => {
   res.render('index');
+});
+
+router.get('/login', (req, res) => {
+  res.render('login', {
+    classBody: "page"
+  });
+});
+
+router.get('/logout', (req, res) => {
+  res.render('logout');
 });
 
 router.get('/about', (req, res) => {
@@ -14,33 +30,41 @@ router.get('/about', (req, res) => {
 });
 
 router.get('/find', (req, res) => {
-  res.render('find', {
-    classBody: "page"
-  });
-});
+  const limit = 12;
+  let skip = 0;
+  let totalPages = 0;
+  let term = false;
+  let q = {type: 'Organization'};
 
-router.get('/login', (req, res) => {
-  res.render('login', {
-    classBody: "page"
-  });
-});
+  if(req.query.hasOwnProperty('page')){
+    skip = parseInt(req.query.page);
+  }
 
-router.get('/register', (req, res) => {
-  res.render('register', {
-    classBody: "page"
-  });
-});
+  if(req.query.hasOwnProperty('title')){
+    q = {
+      type: 'Organization',
+      'organization.name': new RegExp(req.query.term, 'i')
+    };
+  }
 
-router.get('/register/user', (req, res) => {
-  res.render('register-user', {
-    classBody: "page"
-  });
-});
+  if(req.query.hasOwnProperty('tags')) {
+    q = {
+      type: 'Organization',
+      'organization.tags': new RegExp(req.query.tags, 'i')
+    };
+  }
 
-router.get('/register/ngo', (req, res) => {
-  res.render('register-ngo', {
-    classBody: "page"
-  });
+  User.find(q)
+    .skip(skip).limit(limit)
+    .exec()
+    .then((response) => {
+      response = response.map((item) => _.omit(item.toObject(), 'password'));
+
+      res.render('find', {
+        classBody: "page",
+        orgs: response
+      });
+    });
 });
 
 module.exports = router;

@@ -1,0 +1,99 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<section class="recent-causes section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-breadcroumb">
+          <p><a href="/">Home</a> / <a href="/find">Organizations</a> / {{ user.organization.name }}</p>
+        </div>
+
+        <div class="inner-page-title">
+          <h2>Donate for {{ user.organization.name }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="inner-cause-inner">
+          <div class="inner-cause-featured">
+            <img src="/assets/{{ user.organization.picture.original.url }}" alt="{{ user.organization.name }}">
+          </div>
+
+          <div class="inner-cause-title">
+            <h2>Donate for {{ user.organization.name }}</h2>
+            <p>
+              <i class="fa fa-clock-o"></i> {{ user.createdFormated }} <span class="event-sep"></span>
+              <i class="fa fa-map-marker"></i> {{ user.organization.city }} <span class="event-sep"></span>
+              <i class="fa fa-bars"></i> {{ user.organization.tags }} </p>
+          </div>
+
+          <div class="inner-cause-metadata">
+            <div class="progress">
+              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                <span class="sr-only">60% Complete (success)</span>
+              </div>
+            </div>
+
+            <div class="inner-cause-stats">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="inner-left-collected">
+                    <p>Collected: <strong>${{ user.organization.totalDonation }}</strong></p>
+                    <p class="inner-casue-meta">
+                      <i class="fa fa-clock-o"></i> last donation: {{ user.lastDonation }} <span class="event-sep"></span>
+                      <i class="fa fa-map-marker"></i> <strong>$5,300</strong> more needed <span class="event-sep"></span>
+                      <i class="fa fa-bars"></i> 410 Donors
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /inner-cause-stats -->
+          </div>
+
+          <div class="inner-cause-content">
+            <p>{{ user.organization.description }}</p>
+
+            <a href="/organization/{{ user._id }}/donate" class="readmore">Donate</a>
+          </div>
+
+          <div class="donate-steps">
+            <div class="donate-steps-title">
+              <h2>How You Can Donate: Easy Steps</h2>
+            </div>
+
+            <div class="donate-three-steps">
+              <div class="single-donate-step-wrapper">
+                <div class="single-donate-step">
+                  <span class="donate-step-no">1</span>
+                  <h2>Select how much you want to Donate</h2>
+                  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam</p>
+                </div>
+              </div>
+              <div class="single-donate-step-wrapper">
+                <div class="single-donate-step right-directions">
+                  <span class="donate-step-no">2</span>
+                  <h2>Fill a simple & easy form</h2>
+                  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam</p>
+                </div>
+              </div>
+              <div class="single-donate-step-wrapper">
+                <div class="single-donate-step">
+                  <span class="donate-step-no">3</span>
+                  <h2>Feel proud to helping out</h2>
+                  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam</p>
+                </div>
+              </div>
+            </div>
+            <div class="donate-bottom text-center">
+              <a href="" class="readmore">Donate</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

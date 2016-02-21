@@ -1739,3 +1739,7 @@ input[type="submit"],
 .about-box i.fa,
 .volunteer-hover::after,
 .tag-list a, .left-frame::before, .left-frame::after, .right-frame::before, .right-frame::after, .total-events, .total-donation-stats p, .mainmenu:after { background-color: #41C484 }
+
+.search-orgs {margin: -70px 0 0; background: #fff; }
+.search-orgs button {background: #41C484; color: #fff; border: 0; padding: 11px 15px; }
+.search-orgs input {width: 210px; }

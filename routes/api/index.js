@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.use('/auth', require('./auth'));
 router.use('/registration', require('./registration'));
+router.use('/organization', require('./organization'));
 
 router.use((err, req, res, next) => { // jshint ignore:line
   let errorPayload = {
