@@ -6,11 +6,11 @@
     <div class="row">
       <div class="col-md-12">
         <div class="page-breadcroumb">
-          <p><a href="/">Home</a> / <a href="/find">Organizations</a> / Name</p>
+          <p><a href="/">Home</a> / <a href="/find">Organizations</a> / {{ user.organization.name }}</p>
         </div>
 
         <div class="inner-page-title">
-          <h2>Donate for Child Education</h2>
+          <h2>Donate for {{ user.organization.name }}</h2>
         </div>
       </div>
     </div>
@@ -19,12 +19,15 @@
       <div class="col-md-12">
         <div class="inner-cause-inner">
           <div class="inner-cause-featured">
-            <img src="img/cause-featured.jpg" alt="">
+            <img src="/assets/{{ user.organization.picture.original.url }}" alt="{{ user.organization.name }}">
           </div>
 
           <div class="inner-cause-title">
-            <h2>Donate for Child Education</h2>
-            <p><i class="fa fa-clock-o"></i> 26 March, 2015 <span class="event-sep"></span> <i class="fa fa-map-marker"></i> Dhaka <span class="event-sep"></span> <i class="fa fa-bars"></i> Child, Education</p>
+            <h2>Donate for {{ user.organization.name }}</h2>
+            <p>
+              <i class="fa fa-clock-o"></i> {{ user.createdFormated }} <span class="event-sep"></span>
+              <i class="fa fa-map-marker"></i> {{ user.organization.city }} <span class="event-sep"></span>
+              <i class="fa fa-bars"></i> {{ user.organization.tags }} </p>
           </div>
 
           <div class="inner-cause-metadata">
@@ -38,33 +41,22 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="inner-left-collected">
-                    <p>Collected: <strong>$6,000</strong></p>
-                    <p class="inner-casue-meta"><i class="fa fa-clock-o"></i> 2 days to go <span class="event-sep"></span> <i class="fa fa-map-marker"></i> <strong>$5,300</strong> more needed <span class="event-sep"></span> <i class="fa fa-bars"></i> 410 Donors</p>
+                    <p>Collected: <strong>${{ user.organization.totalDonation }}</strong></p>
+                    <p class="inner-casue-meta">
+                      <i class="fa fa-clock-o"></i> last donation: {{ user.lastDonation }} <span class="event-sep"></span>
+                      <i class="fa fa-map-marker"></i> <strong>$5,300</strong> more needed <span class="event-sep"></span>
+                      <i class="fa fa-bars"></i> 410 Donors
+                    </p>
                   </div>
-
-
-                </div>
-                <div class="col-md-6 text-right">
-                  <div class="inner-right-target">
-                    <p>Target: <strong>$10,000</strong></p>
-                    <a href="" class="readmore">Donate</a>
-                  </div>
-
                 </div>
               </div>
-            </div>                                                                                       
+            </div><!-- /inner-cause-stats -->
           </div>
 
           <div class="inner-cause-content">
-            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, expedita!</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis tenetur porro ipsam mollitia. Accusamus id iusto aut dolores libero tenetur? Doloribus, quisquam natus perferendis beatae temporibus ratione fugiat alias. Minus vel adipisci reprehenderit ex quos aperiam unde, nemo inventore illum voluptatum. Aut quam alias veritatis placeat officiis accusantium dignissimos, amet?</p>
-            <p><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sed repudiandae vero esse nihil quia eius dignissimos, velit perspiciatis dolore.</strong></p>
+            <p>{{ user.organization.description }}</p>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam natus magni tenetur ex qui vitae ullam magnam, facilis iusto libero veniam ipsum dolorum accusamus eaque ut, voluptatibus esse voluptates! Unde.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo debitis ex quam quos, eligendi quisquam magni praesentium fugit odio nisi. Nemo at quas, reprehenderit, laborum iste odit numquam sed saepe deserunt dolor repellendus, dolorum itaque unde quos aliquid. Sit recusandae, corporis voluptate maiores, animi nesciunt consequatur quam provident totam cupiditate voluptatem dolorem vero debitis quod veniam perspiciatis nemo labore, non!</p>
-
-            <a href="" class="readmore">Donate</a>
+            <a href="/organization/{{ user._id }}/donate" class="readmore">Donate</a>
           </div>
 
           <div class="donate-steps">

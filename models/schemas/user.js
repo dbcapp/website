@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const crypt = require('../../helpers/crypt');
 const organizationSchema = require('./organization');
 const donatorSchema = require('./donator');
+const moment = require('moment');
 
 // Schema
 const schema = new mongoose.Schema({
@@ -23,5 +24,14 @@ schema.index({email: 1, deletedAt: -1}, {unique: true});
 
 // Plugins
 schema.plugin(require('./plugins/base'));
+
+// Virtuals
+schema.virtual('createdFormated').get(function() {
+  return moment(this.createdAt).format('DD MMM YYYY');
+});
+
+schema.virtual('lastDonation').get(function() {
+  return moment(this.organization.lastDonation).fromNow();
+});
 
 module.exports = schema;

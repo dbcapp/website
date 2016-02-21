@@ -5,8 +5,9 @@ const router = express.Router();
 const User = require('../../models/user');
 const _ = require('lodash');
 
-// Register pages
 router.use('/register', require('./register'));
+router.use('/organization', require('./organization'));
+
 
 router.get('/', (req, res) => {
   res.render('index');
@@ -64,13 +65,6 @@ router.get('/find', (req, res) => {
         orgs: response
       });
     });
-});
-
-router.get('/organization/:id', (req, res) => {
-  res.render('organization', {
-    classBody: "page",
-    // organization: response
-  });
 });
 
 module.exports = router;
