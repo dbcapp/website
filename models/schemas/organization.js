@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
   name: {type: String},
   description: {type: String},
   address: {type: String},
-  number: {type: Number},
+  number: {type: String},
   city: {type: String},
   state: {type: String},
   employees: [employeeSchema],

@@ -20,28 +20,28 @@
       <div class="row">
         <div class="col-md-12">
 
-          <form action="." method="POST">
+          <form action="/register/organization" method="POST">
             <div class="contact-form" style="margin: 0 auto;">
               <div class="row">
-                {% if error %}
-                  <p class="helper-message" style="width: 94%; margin: 0 auto 10px;">{{ error }}</p>
+                {% if response.error %}
+                  <p class="helper-message" style="width: 94%; margin: 0 auto 10px;">{{ response.error }}</p>
                 {% endif %}
 
                 <div class="col-md-12">
                   <div class="col-md-6">
-                    <p><input type="text" class="name" placeholder="Name"></p>
+                    <p><input type="text" name="name" class="name" placeholder="Name" value="{{ response.user[0].name }}"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="email" class="email" placeholder="Email"></p>
+                    <p><input type="email" name="email" class="email" placeholder="Email" value="{{ response.user[0].email }}"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="password" class="password" placeholder="Passsword"></p>
+                    <p><input type="password" name="password" class="password" placeholder="Passsword"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="password" class="confirmPassword" placeholder="Confirm passsword"></p>
+                    <p><input type="password" name="confirmPassword" class="confirmPassword" placeholder="Confirm passsword"></p>
                   </div>
                 </div>
 
@@ -51,29 +51,29 @@
                   <p class="text-center"><h1>Informations</h1></p>
 
                   <div class="col-md-12">
-                    <p><input type="text" class="name-organization" placeholder="Name Organization"></p>
+                    <p><input type="text" name="organizationName" class="organization" placeholder="Name Organization" value="{{ response.user[0].organization.name }}"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="text" class="address" placeholder="Address"></p>
+                    <p><input type="text" name="organizationAddress" class="address" placeholder="Address" value="{{ response.user[0].organization.address }}"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="text" class="number" placeholder="Number"></p>
+                    <p><input type="text" name="organizationNumber" class="number" placeholder="Number" value="{{ response.user[0].organization.number }}"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="text" class="city" placeholder="City"></p>
+                    <p><input type="text" name="organizationCity" class="city" placeholder="City" value="{{ response.user[0].organization.city }}"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="text" class="state" placeholder="State"></p>
+                    <p><input type="text" name="organizationState" class="state" placeholder="State" value="{{ response.user[0].organization.state }}"></p>
                   </div>
 
                   <div class="col-md-12">
                     <p>
                       <label for="tags">Tags</label>
-                      <select name="organization[tags]" class="tags-tokenizer form-control" style="width: 100%"></select>
+                      <select name="organizationTags" multiple="" class="tags-tokenizer form-control" style="width: 100%"></select>
                     </p>
                   </div>
                 </div>

@@ -70,8 +70,4 @@ router.use('/register', require('./register'));
 router.use('/organization', require('./organization'));
 router.use('/auth', require('./auth'));
 
-router.use((req, res, next) => { // jshint ignore:line
-  res.render('404');
-});
-
 module.exports = router;

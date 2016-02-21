@@ -23,22 +23,23 @@
           <form action="." method="PUT">
             <div class="contact-form" style="margin: 0 auto;">
               <div class="row">
-                {% if error %}
-                  <p class="helper-message" style="width: 94%; margin: 0 auto 10px;">{{ error }}</p>
+                {% if response.error %}
+                  <p class="helper-message" style="width: 94%; margin: 0 auto 10px;">{{ response.error }}</p>
                 {% endif %}
 
                 <div class="col-md-12">
                   <div class="col-md-12">
-                    <textarea name="description" class="description" cols="30" rows="10"></textarea>
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" class="description" cols="30" rows="10">{{ response.user[0].description }}</textarea>
                   </div>
 
                   <div class="col-md-12">
-                    <select name="employeers" class="employeers-tokenizer" style="width: 100%"></select>
+                    <select name="employeers" multiple="" class="employeers-tokenizer" style="width: 100%"></select>
                   </div>
 
                   <div class="col-md-12">
-                    <label for="">Foto</label>
-                    <input type="file" name="picture">
+                    <label for="picture">Foto</label>
+                    <input type="file" id="picture" name="picture">
                   </div>
                 </div>
               </div>

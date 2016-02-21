@@ -155,19 +155,26 @@ router.get('/organization/:id', (req, res) => {
 });
 
 router.post('/organization', (req, res) => {
-  let data = _.pick(req.body, 'name', 'email', 'password', 'organization');
-  data.organization = _.pick(data.organization, 'tags', 'picture', 'employees');
+  let data = _.pick(req.body, 'name', 'email', 'password');
+  data.organization = {
+    name: req.body.organizationName,
+    address: req.body.organizationAddress,
+    number: req.body.organizationNumber,
+    city: req.body.organizationCity,
+    state: req.body.organizationState,
+    tags: req.body.organizationTags
+  };
+
   data.type = 'Organization';
 
-
-  if(req.body.name == "" || req.body.email == "" || req.body.password){
+  if(data.name == "" || data.email == "" || data.password == ""){
     req.flash('error', 'Complete all fields');
-    req.flash('user', req.body);
+    req.flash('user', data);
     res.redirect('/register/organization');
     req.end();
   } else if(req.body.password != req.body.confirmPassword) {
     req.flash('error', 'You password not match');
-    req.flash('user', req.body);
+    req.flash('user', data);
     res.redirect('/register/organization');
     req.end();
   } else {
@@ -213,7 +220,7 @@ router.post('/organization', (req, res) => {
 
 router.put('/organization/:id', (req, res) => {
   let id = req.params.id;
-  let data = _.pick(req.body, 'name', 'password', 'organization');
+  let data = _.pick(req.body, 'description');
   data.organization = _.pick(data.organization, 'tags', 'picture', 'employees');
 
   let user = null;

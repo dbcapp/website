@@ -202,3 +202,14 @@ exports.updateOrganization = (req, res, next) => {
       next(err);
     });
 };
+
+exports.getDonators = (req, res) => {
+  UserModel.find({type: 'Donator'})
+    .exec()
+    .then((people) => {
+      people = people.map((item) => _.omit(item.toObject(), 'password'));
+
+      res.json(people);
+      res.end();
+    })
+};
