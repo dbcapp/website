@@ -54,10 +54,53 @@
                   </div>
                 </div>
               </div>
+
+              <hr>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <p>Employees:</p>
+                  {% for emp in user.organization.employees %}
+                    <img src="/assets/{{ emp.picture.url }}" alt="{{emp.name}}" class="img-circle">
+                  {% endfor %}
+                </div>
+              </div>
             </div><!-- /inner-cause-stats -->
-          </div>
+          </div><!-- /inner-cause-metadata -->
+
+          <h2>Last Donations</h2>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Donation</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>Pepe</td>
+                <td>$1.500</td>
+              </tr>
+
+              <tr>
+                <td>1</td>
+                <td>Rafael</td>
+                <td>$1.500</td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>Araan</td>
+                <td>$1.500</td>
+              </tr>
+            </tbody>
+          </table><!-- /table -->
 
           <div class="inner-cause-content">
+          <h2>About</h2>
             <p>{{ user.organization.description }}</p>
           </div>
 
