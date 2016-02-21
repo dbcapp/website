@@ -6,7 +6,6 @@ const User = require('../../models/user');
 const _ = require('lodash');
 
 router.get('/', (req, res) => {
-
   User.find({type: "Organization"})
     .limit(3)
     .sort('-createdAt')
@@ -33,11 +32,11 @@ router.get('/find', (req, res) => {
   let term = "";
   let q = {type: 'Organization'};
 
-  if(req.query.hasOwnProperty('page')){
+  if (req.query.hasOwnProperty('page')) {
     skip = parseInt(req.query.page);
   }
 
-  if(req.query.hasOwnProperty('title')){
+  if (req.query.hasOwnProperty('title')) {
     q = {
       type: 'Organization',
       'organization.name': new RegExp(req.query.title, 'i')
@@ -46,7 +45,7 @@ router.get('/find', (req, res) => {
     term = req.query.title;
   }
 
-  if(req.query.hasOwnProperty('tags')) {
+  if (req.query.hasOwnProperty('tags')) {
     q = {
       type: 'Organization',
       'organization.tags': new RegExp(req.query.tags, 'i')
