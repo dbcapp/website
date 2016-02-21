@@ -23,8 +23,13 @@ app.set('views', __dirname + '/views');
 app.use('/assets', express.static('public'));
 app.use(bodyParser.json());
 
+app.use(session({
+  secret: process.env.NODE_SESSION,
+  resave: true,
+  saveUninitialized: true
+}));
+
 app.use(flash());
-app.use(session({ secret: process.env.NODE_SESSION }));
 
 app.use(bodyParser.urlencoded({extended: false}));
 

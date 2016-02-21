@@ -20,28 +20,28 @@
       <div class="row">
         <div class="col-md-12">
 
-          <form action="." method="POST">
+          <form action="/register/user" method="POST">
             <div class="contact-form" style="margin: 0 auto;">
               <div class="row">
-                {% if error %}
-                  <p class="helper-message" style="width: 94%; margin: 0 auto 10px;">{{ error }}</p>
+                {% if response.error %}
+                  <p class="helper-message bg-danger" style="width: 94%; margin: 0 auto 10px;">{{ response.error }}</p>
                 {% endif %}
 
                 <div class="col-md-12">
                   <div class="col-md-6">
-                    <p><input type="text" class="name" placeholder="Name"></p>
+                    <p><input type="text" name="name" class="name" placeholder="Name" value="{{ response.user[0].name }}"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="email" class="email" placeholder="Email"></p>
+                    <p><input type="email" name="email" class="email" placeholder="Email" value="{{ response.user[0].email }}"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="password" class="password" placeholder="Passsword"></p>
+                    <p><input type="password" name="password" class="password" placeholder="Passsword"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="password" class="password" placeholder="Confirm passsword"></p>
+                    <p><input type="password" name="confirmPassword" class="confirmPassword" placeholder="Confirm passsword"></p>
                   </div>
 
                 </div>

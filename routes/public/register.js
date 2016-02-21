@@ -16,59 +16,64 @@ router.get('/', (req, res) => {
 
 // Donator
 router.get('/user', (req, res) => {
-  let error = "";
-
-  if(req.flash('error')) {
-    error = req.flash('error');
-  }
-
   res.render('register/user', {
     classBody: "page",
-    error: error
+    response: req.flash(),
   });
 });
 
 router.post('/user', (req, res) => {
   let data = _.pick(req.body, 'name', 'email', 'password', 'donator');
   data.donator = _.pick(data.donator, 'picture');
-
   data.type = 'Donator';
 
-  let user = new User(data);
+  if(req.body.password != req.body.confirmPassword){
+    req.flash('error', 'Password not match');
+    req.flash('user', req.body);
+    res.redirect('/register/user');
+    res.end();
+  } else {
+    let user = new User(data);
 
-  let savePromise = User.findOne({email: user.email})
-    .then((existingUser) => {
-      if (existingUser) {
-        req.flash('error', 'User already exists');
-        res.redirect('/register/user');
-      }
-    });
+    let savePromise = User.findOne({email: user.email})
+      .then((existingUser) => {
+        if (existingUser) {
+          req.flash('error', 'User already exists');
+          req.flash('user', req.body);
+          res.redirect('/register/user');
+          res.end();
+        }
+      });
 
-  if (data.donator.picture) {
-    savePromise = savePromise.then(() => saveTmpFiles(data.donator.picture, 'jpg'))
-      .then((tmpFilePath) => {
-        return new Promise((resolve, reject) => {
-          user.donator.attach('picture', {path: tmpFilePath}, (err) => {
-            if (err) {
-              reject(err);
-            } else {
-              fs.unlinkSync(tmpFilePath);
-              resolve(err);
-            }
-          })
-        });
+    if (data.donator.picture) {
+      savePromise = savePromise.then(() => saveTmpFiles(data.donator.picture, 'jpg'))
+        .then((tmpFilePath) => {
+          return new Promise((resolve, reject) => {
+            user.donator.attach('picture', {path: tmpFilePath}, (err) => {
+              if (err) {
+                reject(err);
+              } else {
+                fs.unlinkSync(tmpFilePath);
+                resolve(err);
+              }
+            })
+          });
+        })
+    }
+
+    savePromise
+      .then(() => user.save())
+      .then((document) => {
+        res.redirect('/register/finish');
+        res.end();
       })
+      .catch((error) => {
+        req.flash('error', 'Error when trying to register a donator');
+        req.flash('user', req.body);
+        res.redirect('/register/user');
+        res.end();
+      });
   }
-
-  savePromise
-    .then(() => user.save())
-    .then((document) => {
-      res.redirect('/register/finish');
-    })
-    .catch((error) => {
-      req.flash('error', 'Error when trying to register a donator');
-      res.redirect('/register/user');
-    });
 });
 
 router.put('/user/:id', (req, res) => {
