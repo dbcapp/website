@@ -132,34 +132,24 @@ router.put('/user/:id', (req, res) => {
 
 // Organization
 router.get('/organization', (req, res) => {
-  let error = "";
-
-  if(req.flash('error')) {
-    error = req.flash('error');
-  }
   res.render('register/organization', {
     classBody: "page",
-    error: error
+    response: req.flash()
   });
 });
 
 router.get('/organization/:id', (req, res) => {
   let id = req.params.id;
-  let error = "";
-
-  if(req.flash('error')) {
-    error = req.flash('error');
-  }
 
   User.findOne({_id: id})
     .exec()
-    .then((response) => {
-      response = _.omit(response.toObject(), 'password');
+    .then((org) => {
+      org = _.omit(org.toObject({virtuals: true}), 'password');
 
       res.render('register/organization-info', {
         classBody: "page",
-        org: response,
-        error: error
+        org: org,
+        response: req.flash()
       });
     });
 });
@@ -167,42 +157,58 @@ router.get('/organization/:id', (req, res) => {
 router.post('/organization', (req, res) => {
   let data = _.pick(req.body, 'name', 'email', 'password', 'organization');
   data.organization = _.pick(data.organization, 'tags', 'picture', 'employees');
-
   data.type = 'Organization';
 
-  let user = new User(data);
-  let savePromise = User.findOne({email: user.email})
-    .then((existingUser) => {
-      if (existingUser) {
-        throw new Error('User already exists');
-      }
-    });
 
-  if (data.organization.picture) {
-    savePromise = savePromise.then(() => saveTmpFiles(data.organization.picture, 'jpg'))
-      .then((tmpFilePath) => {
-        return new Promise((resolve, reject) => {
-          user.organization.attach('picture', {path: tmpFilePath}, (err) => {
-            if (err) {
-              reject(err);
-            } else {
-              fs.unlinkSync(tmpFilePath);
-              resolve(err);
-            }
-          })
-        });
+  if(req.body.name == "" || req.body.email == "" || req.body.password){
+    req.flash('error', 'Complete all fields');
+    req.flash('user', req.body);
+    res.redirect('/register/organization');
+    req.end();
+  } else if(req.body.password != req.body.confirmPassword) {
+    req.flash('error', 'You password not match');
+    req.flash('user', req.body);
+    res.redirect('/register/organization');
+    req.end();
+  } else {
+    let user = new User(data);
+    let savePromise = User.findOne({email: user.email})
+      .then((existingUser) => {
+        if (existingUser) {
+          req.flash('error', 'User already exists');
+          res.redirect('/register/organization');
+          req.end();
+        }
+      });
+
+    if (data.organization.picture) {
+      savePromise = savePromise.then(() => saveTmpFiles(data.organization.picture, 'jpg'))
+        .then((tmpFilePath) => {
+          return new Promise((resolve, reject) => {
+            user.organization.attach('picture', {path: tmpFilePath}, (err) => {
+              if (err) {
+                reject(err);
+              } else {
+                fs.unlinkSync(tmpFilePath);
+                resolve(err);
+              }
+            })
+          });
+        })
+    }
+
+    savePromise
+      .then(() => user.save())
+      .then((document) => {
+        res.redirect(`/register/organization/${document.id}`);
+        res.end();
       })
+      .catch((error) => {
+        req.flash('error', 'Error when trying to register a organization');
+        res.redirect('/register/organization');
+        res.end();
+      });
   }
-
-  savePromise
-    .then(() => user.save())
-    .then((document) => {
-      res.redirect(`/register/organization/${document.id}`);
-    })
-    .catch((error) => {
-      req.flash('error', 'Error when trying to register a organization');
-      res.redirect('/register/organization');
-    });
 });
 
 router.put('/organization/:id', (req, res) => {
@@ -216,6 +222,7 @@ router.put('/organization/:id', (req, res) => {
       if (!existingUser) {
         req.flash('error', 'User does not exists');
         res.redirect(`/register/organization/${id}`);
+        res.end();
       }
 
       let existingPicture = _.cloneDeep(existingUser.organization.picture);
@@ -250,10 +257,12 @@ router.put('/organization/:id', (req, res) => {
     .then(() => user.save())
     .then((document) => {
       res.redirect('/register/finish');
+      res.end();
     })
     .catch((error) => {
       req.flash('error', 'Error when trying to register a organization');
       res.redirect(`/register/organization/${id}`);
+      res.end();
     });
 });
 
