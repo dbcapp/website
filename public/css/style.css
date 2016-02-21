@@ -290,7 +290,7 @@ display: none
 -----------------------------------------------------------*/
 
 .upcoming-event-area {
-    bottom: 0;
+    bottom: 59px;
     left: 0;
     position: absolute;
     width: 100%;
