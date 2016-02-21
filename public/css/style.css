@@ -132,8 +132,8 @@ div.owl-controls, div.owl-controls div {height: auto}
 .slider-area .owl-nav div.owl-next { right: 30px }
 .slider-area .owl-nav div:hover { opacity: .4 }
 .slider-area.owl-carousel .owl-item {overflow: hidden}
-.slide-1 { background-image: url(img/slide-bg-1.jpg) }
-.slide-2 { background-image: url(img/slide-bg-2.jpg) }
+.slide-1 { background-image: url(../img/wall-home-1.jpg) }
+.slide-2 { background-image: url(../img/slide-bg-2.png) }
 
 /* --------------------------------------------------------
 3. Header CSS
