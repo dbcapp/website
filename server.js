@@ -1,6 +1,8 @@
 'use strict';
 
 const express = require('express');
+const session = require('express-session');
+const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 const passport = require('passport');
@@ -20,6 +22,9 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use('/assets', express.static('public'));
 app.use(bodyParser.json());
+
+app.use(flash());
+app.use(session({ secret: process.env.NODE_SESSION }));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
