@@ -41,12 +41,16 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="inner-left-collected">
-                    <p>Collected: <strong>${{ user.organization.totalDonation }}</strong></p>
+                    <p>Collected: <strong>${{ user.organization.totalDonations }}</strong></p>
                     <p class="inner-casue-meta">
-                      <i class="fa fa-clock-o"></i> last donation: {{ user.lastDonation }} <span class="event-sep"></span>
-                      <i class="fa fa-map-marker"></i> <strong>$5,300</strong> more needed <span class="event-sep"></span>
-                      <i class="fa fa-bars"></i> 410 Donors
+                      <i class="fa fa-clock-o" ></i> {{ user.lastDonation }} <span class="event-sep"></span>
                     </p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 text-right">
+                  <div class="inner-right-target">
+                    {{ user.organization.paypalButton | safe }}
                   </div>
                 </div>
               </div>
@@ -55,8 +59,6 @@
 
           <div class="inner-cause-content">
             <p>{{ user.organization.description }}</p>
-
-            <a href="/organization/{{ user._id }}/donate" class="readmore">Donate</a>
           </div>
 
           <div class="donate-steps">
@@ -88,7 +90,7 @@
               </div>
             </div>
             <div class="donate-bottom text-center">
-              <a href="" class="readmore">Donate</a>
+              {{ user.organization.paypalButton | safe }}
             </div>
           </div>
         </div>
