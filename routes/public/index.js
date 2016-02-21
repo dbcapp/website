@@ -6,7 +6,6 @@ const User = require('../../models/user');
 const _ = require('lodash');
 
 router.get('/', (req, res) => {
-
   User.find({type: "Organization"})
     .limit(3)
     .sort('-createdAt')
