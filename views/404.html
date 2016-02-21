@@ -1,0 +1,24 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+  <section class="not-found">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="not-found-preview">
+            <img src="/assets/img/404.jpg" alt="404">
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="not-found-content">
+            <h2>404</h2>
+            <h3>Ups! page not found</h3>
+            <p>We are sorry, but the page you looking for is not found.</p>
+            <a href="/" class="back-to-home"><i class="fa fa-angle-left"></i> Back to home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

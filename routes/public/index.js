@@ -5,11 +5,6 @@ const router = express.Router();
 const User = require('../../models/user');
 const _ = require('lodash');
 
-router.use('/register', require('./register'));
-router.use('/organization', require('./organization'));
-router.use('/auth', require('./auth'));
-
-
 router.get('/', (req, res) => {
 
   User.find({type: "Organization"})
@@ -70,6 +65,14 @@ router.get('/find', (req, res) => {
         term: term
       });
     });
+});
+
+router.use('/register', require('./register'));
+router.use('/organization', require('./organization'));
+router.use('/auth', require('./auth'));
+
+router.use((req, res, next) => { // jshint ignore:line
+  res.render('404');
 });
 
 module.exports = router;
