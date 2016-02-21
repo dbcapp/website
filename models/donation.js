@@ -9,6 +9,9 @@ const increaseTotalDonationInOrganization = (document) => {
   UserModel.update({_id: document.to}, {
     $inc: {
       'organization.totalDonations': document.value
+    },
+    $set: {
+      'organization.lastDonationAt': new Date()
     }
   });
 };
