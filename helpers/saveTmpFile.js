@@ -4,13 +4,17 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-module.exports = (base64, fileExtension) => {
-  base64 = base64.replace(/^data:image\/(.*);base64,/, '');
+module.exports = (fileData, fileExtension) => {
+  let type = null;
+  if (typeof fileData === 'string') {
+    type = 'base64';
+    fileData = fileData.replace(/^data:image\/(.*);base64,/, '');
+  }
 
   let tmpFilePath = path.join(path.resolve('./'), 'public/uploads/tmp/', crypto.randomBytes(64).toString('hex')) + `.${fileExtension}`;
 
   return new Promise((resolve, reject) => {
-    fs.writeFile(tmpFilePath, base64, 'base64', (err) => {
+    fs.writeFile(tmpFilePath, fileData, type, (err) => {
       if (err) {
         reject(err);
       } else {
