@@ -9,7 +9,6 @@ module.exports = (base64, fileExtension) => {
 
   let tmpFilePath = path.join(path.resolve('./'), 'public/uploads/tmp/', crypto.randomBytes(64).toString('hex')) + `.${fileExtension}`;
 
-
   return new Promise((resolve, reject) => {
     fs.writeFile(tmpFilePath, base64, 'base64', (err) => {
       if (err) {
