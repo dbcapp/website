@@ -16,10 +16,16 @@ router.get('/', (req, res) => {
     res.end();
   }
 
-  res.render('profile', {
-    response: req.flash(),
-    user: user
-  });
+  User.find({type: 'Donator'})
+    .exec()
+    .then((people) => {
+      res.render('profile', {
+        classBody: "page",
+        response: req.flash(),
+        people: people,
+        user: user
+      });
+    });
 });
 
 router.post('/', multipart, (req, res) => {
