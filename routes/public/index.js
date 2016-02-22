@@ -59,7 +59,7 @@ router.get('/find', (req, res) => {
     .skip(skip).limit(limit)
     .exec()
     .then((response) => {
-      response = response.map((item) => _.omit(item.toObject(), 'password'));
+      response = response.map((item) => _.omit(item.toObject({virtuals: true}), 'password'));
 
       res.render('find', {
         classBody: "page",
