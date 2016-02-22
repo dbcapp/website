@@ -11,7 +11,7 @@ const fs = require('fs');
 router.get('/', (req, res) => {
   let user = req.session.user;
 
-  if(!user) {
+  if (!user) {
     res.redirect('/');
     res.end();
   }
@@ -32,12 +32,12 @@ router.post('/', multipart, (req, res) => {
   let currentUser = req.session.user;
   let data = _.pick(req.body, 'name', 'password');
 
-  if(!currentUser) {
+  if (!currentUser) {
     res.redirect('/');
     res.end();
   }
-  if(currentUser.type == "Donator") {
-    if(req.body.password != "" && req.body.password != req.body.confirmPassword){
+  if (currentUser.type == "Donator") {
+    if (req.body.password != "" && req.body.password != req.body.confirmPassword) {
       req.flash('error', 'You password not match');
       res.redirect('/user');
       res.end();
@@ -96,8 +96,9 @@ router.post('/', multipart, (req, res) => {
       });
 
     if (data.organization.picture) {
-      savePromise = savePromise.then(() => saveTmpFiles(data.organization.picture, 'jpg'))
-        .then((tmpFilePath) => {
+      savePromise = savePromise
+        .then(() => {
+          let tmpFilePath = data.organization.picture.path;
           return new Promise((resolve, reject) => {
             user.organization.attach('picture', {path: tmpFilePath}, (err) => {
               if (err) {
