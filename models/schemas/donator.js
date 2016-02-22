@@ -8,6 +8,16 @@ const GraphicsMagic = require('mongoose-crate-gm');
 
 const schema = new mongoose.Schema({});
 
+schema.virtual('pictureUrl').get(function() {
+  let url = null;
+
+  if (this.picture && this.picture.original && this.picture.original.url) {
+    url = `${this.picture.original.url.replace(path.join(path.resolve('./'), 'public'), '')}`;
+  }
+
+  return url;
+});
+
 schema.plugin(crate, {
   storage: new LocalFS({
     directory: path.join(path.resolve('./'), 'public/uploads/donator')

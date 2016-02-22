@@ -34,7 +34,7 @@
                   </div>
 
                   <div class="col-md-12">
-                    <select name="employees" multiple="" class="employeers-tokenizer" style="width: 100%">
+                    <select name="employees[]" multiple="" class="employeers-tokenizer" style="width: 100%">
                       {% for emp in people %}
                         <option value="{{ emp._id }}">{{ emp.name }}</option>
                       {% endfor %}
