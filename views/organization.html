@@ -1,153 +1,153 @@
 {% extends 'partials/base.html' %}
 
 {% block content %}
-<section class="recent-causes section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="page-breadcroumb">
-          <p><a href="/">Home</a> / <a href="/find">Organizations</a> / {{ user.organization.name }}</p>
-        </div>
-
-        <div class="inner-page-title">
-          <h2>Donate for {{ user.organization.name }}</h2>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <div class="inner-cause-inner">
-          <div class="inner-cause-featured">
-            <img src="/assets/{{ user.organization.picture.original.url }}" alt="{{ user.organization.name }}">
+  <section class="recent-causes section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-breadcroumb">
+            <p><a href="/">Home</a> / <a href="/find">Organizations</a> / {{ user.organization.name }}</p>
           </div>
 
-          <div class="inner-cause-title">
+          <div class="inner-page-title">
             <h2>Donate for {{ user.organization.name }}</h2>
-            <p>
-              <i class="fa fa-clock-o"></i> {{ user.createdFormated }} <span class="event-sep"></span>
-              <i class="fa fa-map-marker"></i> {{ user.organization.city }} <span class="event-sep"></span>
-              <i class="fa fa-bars"></i> {{ user.organization.tags }} </p>
           </div>
+        </div>
+      </div>
 
-          <div class="inner-cause-metadata">
-            <div class="inner-cause-stats">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="inner-left-collected">
-                    <p>Collected: <strong>${{ user.organization.totalDonations }}</strong></p>
-                    <p class="inner-casue-meta">
-                      <i class="fa fa-clock-o" ></i> {{ user.lastDonation }} <span class="event-sep"></span>
-                    </p>
-                  </div>
-                </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="inner-cause-inner">
+            <div class="inner-cause-featured">
+              <img src="/assets/{{ user.organization.picture.original.url }}" alt="{{ user.organization.name }}">
+            </div>
 
-                <div class="col-md-6 text-right">
-                  <div class="inner-right-target">
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                      <input type="hidden" name="custom" value="{{ base_json }}">
-                      <input type="hidden" name="cmd" value="_s-xclick">
-                      <input type="hidden" name="hosted_button_id" value="{{ user.organization.paypalButton }}">
-                      <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!">
-                      <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
-                    </form>
-                  </div>
-                </div>
-              </div>
+            <div class="inner-cause-title">
+              <h2>Donate for {{ user.organization.name }}</h2>
+              <p>
+                <i class="fa fa-clock-o"></i> {{ user.createdFormated }} <span class="event-sep"></span>
+                <i class="fa fa-map-marker"></i> {{ user.organization.city }} <span class="event-sep"></span>
+                <i class="fa fa-bars"></i> {{ user.organization.tags }} </p>
+            </div>
 
-              <hr>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <p>Employees:</p>
-                  {% for emp in user.organization.employees %}
-                    <div class="col-md-2">
-                      <img src="/assets/{{ emp.picture.url }}" alt="{{emp.name}}" class="img-circle">
-                      <p class="text-center">{{ emp.name }}</p>
+            <div class="inner-cause-metadata">
+              <div class="inner-cause-stats">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="inner-left-collected">
+                      <p>Collected: <strong>${{ user.organization.totalDonations }}</strong></p>
+                      <p class="inner-casue-meta">
+                        <i class="fa fa-clock-o" ></i> {{ user.lastDonation }} <span class="event-sep"></span>
+                      </p>
                     </div>
-                  {% endfor %}
+                  </div>
+
+                  <div class="col-md-6 text-right">
+                    <div class="inner-right-target">
+                      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="custom" value="{{ base_json }}">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="{{ user.organization.paypalButton }}">
+                        <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
+                      </form>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div><!-- /inner-cause-stats -->
-          </div><!-- /inner-cause-metadata -->
 
-          <h2>Last Donations</h2>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Donation</th>
-              </tr>
-            </thead>
+                <hr>
 
-            <tbody>
-              <tr>
-                <td>0</td>
-                <td>Pepe</td>
-                <td>$1.500</td>
-              </tr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p>Employees:</p>
+                    {% for emp in user.organization.employees %}
+                      <div class="col-md-2">
+                        <img src="/assets/{{ emp.picture.url }}" alt="{{emp.name}}" class="img-circle">
+                        <p class="text-center">{{ emp.name }}</p>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div><!-- /inner-cause-stats -->
+            </div><!-- /inner-cause-metadata -->
 
-              <tr>
-                <td>1</td>
-                <td>Rafael</td>
-                <td>$1.500</td>
-              </tr>
+            <h2>Last Donations</h2>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Donation</th>
+                </tr>
+              </thead>
 
-              <tr>
-                <td>2</td>
-                <td>Araan</td>
-                <td>$1.500</td>
-              </tr>
-            </tbody>
-          </table><!-- /table -->
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>Pepe</td>
+                  <td>$1.500</td>
+                </tr>
 
-          <div class="inner-cause-content">
-          <h2>About</h2>
-            <p>{{ user.organization.description }}</p>
-          </div>
+                <tr>
+                  <td>1</td>
+                  <td>Rafael</td>
+                  <td>$1.500</td>
+                </tr>
 
-          <div class="donate-steps">
-            <div class="donate-steps-title">
-              <h2>How You Can Donate: Easy Steps</h2>
+                <tr>
+                  <td>2</td>
+                  <td>Araan</td>
+                  <td>$1.500</td>
+                </tr>
+              </tbody>
+            </table><!-- /table -->
+
+            <div class="inner-cause-content">
+            <h2>About</h2>
+              <p>{{ user.organization.description }}</p>
             </div>
 
-            <div class="donate-three-steps">
-              <div class="single-donate-step-wrapper">
-                <div class="single-donate-step">
-                  <span class="donate-step-no">1</span>
-                  <h2>Select how much you want to Donate</h2>
-                  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam</p>
+            <div class="donate-steps">
+              <div class="donate-steps-title">
+                <h2>How You Can Donate: Easy Steps</h2>
+              </div>
+
+              <div class="donate-three-steps">
+                <div class="single-donate-step-wrapper">
+                  <div class="single-donate-step">
+                    <span class="donate-step-no">1</span>
+                    <h2>Select how much you want to Donate</h2>
+                    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam</p>
+                  </div>
+                </div>
+                <div class="single-donate-step-wrapper">
+                  <div class="single-donate-step right-directions">
+                    <span class="donate-step-no">2</span>
+                    <h2>Fill a simple & easy form</h2>
+                    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam</p>
+                  </div>
+                </div>
+                <div class="single-donate-step-wrapper">
+                  <div class="single-donate-step">
+                    <span class="donate-step-no">3</span>
+                    <h2>Feel proud to helping out</h2>
+                    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam</p>
+                  </div>
                 </div>
               </div>
-              <div class="single-donate-step-wrapper">
-                <div class="single-donate-step right-directions">
-                  <span class="donate-step-no">2</span>
-                  <h2>Fill a simple & easy form</h2>
-                  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam</p>
-                </div>
+              <div class="donate-bottom text-center">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                  <input type="hidden" name="custom" value="{{ base_json }}">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <input type="hidden" name="hosted_button_id" value="{{ user.organization.paypalButton }}">
+                  <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
+                </form>
               </div>
-              <div class="single-donate-step-wrapper">
-                <div class="single-donate-step">
-                  <span class="donate-step-no">3</span>
-                  <h2>Feel proud to helping out</h2>
-                  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam</p>
-                </div>
-              </div>
-            </div>
-            <div class="donate-bottom text-center">
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="custom" value="{{ base_json }}">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="{{ user.organization.paypalButton }}">
-                <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!">
-                <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
-              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 {% endblock %}

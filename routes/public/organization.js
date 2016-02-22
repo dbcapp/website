@@ -5,6 +5,10 @@ const router = express.Router();
 const User = require('../../models/user');
 const _ = require('lodash');
 
+router.get('/donate', (req, res) => {
+  res.render('donate');
+});
+
 router.get('/:id', (req, res) => {
   let id = req.params.id;
   let bj = {};

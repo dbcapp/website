@@ -220,6 +220,7 @@ router.post('/organization/:id', multipart, (req, res) => {
       res.end();
     })
     .catch((error) => {
+      console.log(error);
       req.flash('error', 'Error when trying to register a organization');
       res.redirect(`/register/organization/${id}`);
       res.end();
