@@ -6,7 +6,9 @@ const User = require('../../models/user');
 const _ = require('lodash');
 
 router.get('/donate', (req, res) => {
-  res.render('donate');
+  res.render('donate', {
+    classBody: "page"
+  });
 });
 
 router.get('/:id', (req, res) => {
