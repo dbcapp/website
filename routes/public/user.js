@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
 router.post('/', multipart, (req, res) => {
   let currentUser = req.session.user;
   let data = _.pick(req.body, 'name', 'password');
+  let emps = [];
 
   if (!currentUser) {
     res.redirect('/');
@@ -41,6 +42,28 @@ router.post('/', multipart, (req, res) => {
       req.flash('error', 'You password not match');
       res.redirect('/user');
       res.end();
+    }
+
+    if(currentUser.type == "Organization") {
+      data.organization = _.pick(req.body, 'description');
+      data.organization.picture = req.files.picture;
+
+      if(req.body.employees.length > 0) {
+        User.find({_id: {$in: req.body.employees}})
+          .exec()
+          .then((users) => {
+            _.each(users, (v, k) => {
+              emps.push({name: v.name, picture: v.donator.pictureUrl})
+            });
+          });
+      } else {
+        User.findOne({_id: req.body.employees})
+          .exec()
+          .then((user) => {
+            emps.push({name: user.name, picture: user.donator.pictureUrl})
+          });
+      }
+      data.organization.employees = emps;
     }
 
     User
