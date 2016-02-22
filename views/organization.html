@@ -6,11 +6,11 @@
       <div class="row">
         <div class="col-md-12">
           <div class="page-breadcroumb">
-            <p><a href="/">Home</a> / <a href="/find">Organizations</a> / {{ user.organization.name }}</p>
+            <p><a href="/">Home</a> / <a href="/find">Organizations</a> / {{ org.name }}</p>
           </div>
 
           <div class="inner-page-title">
-            <h2>Donate for {{ user.organization.name }}</h2>
+            <h2>Donate for {{ org.name }}</h2>
           </div>
         </div>
       </div>
@@ -18,16 +18,18 @@
       <div class="row">
         <div class="col-md-12">
           <div class="inner-cause-inner">
+            {% if org.organization.pictureUrl %}
             <div class="inner-cause-featured">
-              <img src="/assets/{{ user.organization.picture.original.url }}" alt="{{ user.organization.name }}">
+              <img src="/assets/{{ org.organization.pictureUrl }}" alt="{{ user.organization.name }}">
             </div>
+            {% endif %}
 
             <div class="inner-cause-title">
-              <h2>Donate for {{ user.organization.name }}</h2>
+              <h2>Donate for {{ org.name }}</h2>
               <p>
-                <i class="fa fa-clock-o"></i> {{ user.createdFormated }} <span class="event-sep"></span>
-                <i class="fa fa-map-marker"></i> {{ user.organization.city }} <span class="event-sep"></span>
-                <i class="fa fa-bars"></i> {{ user.organization.tags }} </p>
+                <i class="fa fa-clock-o"></i> {{ org.createdFormated }} <span class="event-sep"></span>
+                <i class="fa fa-map-marker"></i> {{ org.organization.city }} <span class="event-sep"></span>
+                <i class="fa fa-bars"></i> {{ org.organization.tags }} </p>
             </div>
 
             <div class="inner-cause-metadata">
@@ -35,19 +37,19 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="inner-left-collected">
-                      <p>Collected: <strong>${{ user.organization.totalDonations }}</strong></p>
+                      <p>Collected: <strong>${{ org.organization.totalDonations }}</strong></p>
                       <p class="inner-casue-meta">
-                        <i class="fa fa-clock-o" ></i> {{ user.lastDonation }} <span class="event-sep"></span>
+                        <i class="fa fa-clock-o" ></i> {{ org.organization.lastDonation }} <span class="event-sep"></span>
                       </p>
                     </div>
                   </div>
 
                   <div class="col-md-6 text-right">
                     <div class="inner-right-target">
-                      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                      <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
                         <input type="hidden" name="custom" value="{{ base_json }}">
                         <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="{{ user.organization.paypalButton }}">
+                        <input type="hidden" name="hosted_button_id" value="{{ org.organization.paypalButton }}">
                         <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!">
                         <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
                       </form>
@@ -60,7 +62,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <p>Employees:</p>
-                    {% for emp in user.organization.employees %}
+                    {% for emp in org.organization.employees %}
                       <div class="col-md-2">
                         <img src="/assets/{{ emp.picture.url }}" alt="{{emp.name}}" class="img-circle">
                         <p class="text-center">{{ emp.name }}</p>
@@ -75,36 +77,24 @@
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th>#</th>
                   <th>Name</th>
                   <th>Donation</th>
                 </tr>
               </thead>
 
               <tbody>
+                {% for donation in org.donations %}
                 <tr>
-                  <td>0</td>
-                  <td>Pepe</td>
-                  <td>$1.500</td>
+                  <td>{{donation.from.name}}</td>
+                  <td>{{donation.value}}</td>
                 </tr>
-
-                <tr>
-                  <td>1</td>
-                  <td>Rafael</td>
-                  <td>$1.500</td>
-                </tr>
-
-                <tr>
-                  <td>2</td>
-                  <td>Araan</td>
-                  <td>$1.500</td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table><!-- /table -->
 
             <div class="inner-cause-content">
             <h2>About</h2>
-              <p>{{ user.organization.description }}</p>
+              <p>{{ org.organization.description }}</p>
             </div>
 
             <div class="donate-steps">
@@ -139,7 +129,7 @@
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                   <input type="hidden" name="custom" value="{{ base_json }}">
                   <input type="hidden" name="cmd" value="_s-xclick">
-                  <input type="hidden" name="hosted_button_id" value="{{ user.organization.paypalButton }}">
+                  <input type="hidden" name="hosted_button_id" value="{{ org.organization.paypalButton }}">
                   <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!">
                   <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
                 </form>
