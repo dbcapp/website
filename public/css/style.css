@@ -469,8 +469,9 @@ color: #fff;
 overflow: hidden;
 padding: 16px 32px 17px 13px;
 position: absolute;
-width: 110px;
-    left: 0;top: 0
+width: 100%;
+left: 0;
+top: 0;
 }
 .total-events h2 {
     font-size: 35px;
@@ -480,6 +481,7 @@ width: 110px;
     display: block;
     font-size: 20px;
     font-weight: 400;
+    text-align: center;
 }
 .total-events::after {
     background: #fff none repeat scroll 0 0;

@@ -1,7 +1,7 @@
-  {% set base = "home" %}
-  {% extends "partials/base.html" %}
+{% set base = "home" %}
+{% extends "partials/base.html" %}
 
-  {% block content %}
+{% block content %}
   <section class="about-us">
     <div class="container">
       <div class="row">
@@ -17,20 +17,20 @@
           <div class="about-photo">
             <div class="left-frame"></div>
             <div class="right-frame"></div>
-            <img class="img-responsive" src="/assets/img/about.jpg" alt="">
+            <img class="img-responsive" src="/assets/img/codercat.jpg" class="img-responsive" alt="Github Codecat">
           </div>
 
           <div class="our-stats">
             <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-2">
+              <div class="col-lg-4 col-md-4 col-sm-2">
                 <div class="total-events">
-                  <h2>34 <span>Events</span></h2>
+                  <h2><span class="count-commits"></span> <span>Commits</span></h2>
                 </div>
               </div>
-              <div class="col-lg-9 col-md-8 col-sm-10">
+              <div class="col-lg-8 col-md-8 col-sm-10">
                 <div class="total-donation-stats">
-                  <p><span class="counter">2434</span> People got help</p>
-                  <p>$ <span class="counter">321548</span> Donation till now</p>
+                  <p><span class="counter-stars"></span> Stars</p>
+                  <p><span class="counter-forks"></span> Forks</p>
                 </div>
               </div>
 
@@ -147,78 +147,6 @@
   </section><!-- /recent-causes -->
 
 
-  {#<section class="more-events-area section-padding section-dark">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="page-title">
-            <h2>Upcoming events</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3 col-sm-6 wow fadeInLeft">
-          <div class="more-event-single">
-            <img src="/assets/img/event.jpg" class="img-responsive" alt="">
-            <div class="more-event-hover">
-              <div class="more-event-table">
-                <div class="more-event-cell">
-                  <h2>One day with Autistic child</h2>
-                  <p><i class="fa fa-calendar"></i> 12 Apr, 2015 <span class="event-sep"></span> <i class="fa fa-map-marker"></i> Singapore</p>
-                  <a href="" class="btn-bordered">Read More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 wow fadeInUp">
-          <div class="more-event-single">
-            <img src="/assets/img/event-1.jpg" class="img-responsive" alt="">
-            <div class="more-event-hover">
-              <div class="more-event-table">
-                <div class="more-event-cell">
-                  <h2>Warm A Home</h2>
-                  <p><i class="fa fa-calendar"></i> 25 May, 2015 <span class="event-sep"></span> <i class="fa fa-map-marker"></i> Tokyo</p>
-                  <a href="" class="btn-bordered">Read More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 wow fadeInDown">
-          <div class="more-event-single">
-            <img src="/assets/img/event-2.jpg" class="img-responsive" alt="">
-            <div class="more-event-hover">
-              <div class="more-event-table">
-                <div class="more-event-cell">
-                  <h2>Polio vaccine Day - 2015</h2>
-                  <p><i class="fa fa-calendar"></i> 30 Oct, 2015 <span class="event-sep"></span> <i class="fa fa-map-marker"></i> Dhaka</p>
-                  <a href="" class="btn-bordered">Read More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 wow fadeInRight">
-          <div class="more-event-single">
-            <img src="/assets/img/event-3.jpg" class="img-responsive" alt="">
-            <div class="more-event-hover">
-              <div class="more-event-table">
-                <div class="more-event-cell">
-                  <h2>1 Mile for Breast Cancer</h2>
-                  <p><i class="fa fa-calendar"></i> 28 Nov, 2015 <span class="event-sep"></span> <i class="fa fa-map-marker"></i> Blackfoot</p>
-                  <a href="" class="btn-bordered">Read More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>#}
-
-
   <section class="call-to-action section-padding">
     <div class="cta-bg"></div>
     <div class="container">
@@ -231,112 +159,5 @@
     </div>
   </section>
 
-  {#<section class="recent-news-area section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 wow fadeIn">
-          <div class="recent-news">
-            <div class="recent-news-title">
-              <h2>RECENT NEWS</h2>
-              <a href="blog-list.html">View All <i class="fa fa-angle-double-right"></i></a>
-            </div>
-
-            <div class="featured-news">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="featured-news-content">
-                    <img src="/assets/img/featured.jpg" alt="">
-                    <div class="featured-news-date">
-                      <p>24 <span>March</span></p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-6">
-                  <div class="featured-news-title">
-                    <h2><a href="single-blog.html">A day with children to solve mathematics</a></h2>
-                    <p class="featured-news-meta"><i class="fa fa-user"></i> Admin <i class="fa fa-share"></i> Child, Education</p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
-                    <a href="single-blog.html" class="readmore">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="related-news">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="single-related-news">
-                    <img src="/assets/img/featured-thumb-1.jpg" alt="">
-                    <h2><a href="single-blog.html">The dark side of a bright future</a></h2>
-                    <p class="related-news-meta"><i class="fa fa-user"></i> Admin <i class="fa fa-clock-o"></i> 12 March, 2015 <i class="fa fa-share"></i> Child, Education</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, perferendis!</p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="single-related-news">
-                    <img src="/assets/img/featured-thumb-2.jpg" alt="">
-                    <h2><a href="single-blog.html">Your relationship with your son</a></h2>
-                    <p class="related-news-meta"><i class="fa fa-user"></i> Admin <i class="fa fa-clock-o"></i> 12 March, 2015 <i class="fa fa-share"></i> Child, Education</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, perferendis!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-md-4 wow fadeIn">
-          <div class="newsletter-subscribe">
-            <h2>Subscribe to Our Newsletter</h2>
-            <div class="newsletter-form">
-              <form action="index.html">
-                <input type="text" placeholder="Your email address here">
-                <input type="submit" value="Subscribe">
-              </form>
-            </div>
-          </div>
-
-          <div class="our-archivement">
-            <h2>Our Achievement</h2>
-            <div class="archivement-list">
-              <img src="/assets/img/archive_1.png" alt="">
-              <img src="/assets/img/archive_2.png" alt="">
-              <img src="/assets/img/archive_3.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>#}
-
-  {#<div class="we-worked-with section-gray section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="clients-list">
-            <div class="single-client">
-              <img src="/assets/img/logo_1.png" alt="">
-            </div>
-            <div class="single-client">
-              <img src="/assets/img/logo_2.png" alt="">
-            </div>
-            <div class="single-client">
-              <img src="/assets/img/logo_3.png" alt="">
-            </div>
-            <div class="single-client">
-              <img src="/assets/img/logo_4.png" alt="">
-            </div>
-            <div class="single-client">
-              <img src="/assets/img/logo_5.png" alt="">
-            </div>
-            <div class="single-client">
-              <img src="/assets/img/logo_6.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-  {% endblock %}
+{% endblock %}
