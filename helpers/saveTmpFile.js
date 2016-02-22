@@ -6,7 +6,7 @@ const crypto = require('crypto');
 
 module.exports = (fileData, fileExtension) => {
   let type = 'base64';
-  
+
   if (typeof fileData === 'string') {
     fileData = fileData.replace(/^data:image\/(.*);base64,/, '');
   } else if(typeof fileData === 'object'){
