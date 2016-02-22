@@ -23,7 +23,7 @@ const schema = new mongoose.Schema({
 schema.virtual('pictureUrl').get(function() {
   let url = null;
 
-  if (this.picture) {
+  if (this.picture && this.picture.original && this.picture.original.url) {
     url = `${this.picture.original.url.replace(path.join(path.resolve('./'), 'public'), '')}`;
   }
 
