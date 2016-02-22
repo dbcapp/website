@@ -52,6 +52,11 @@
                   </div>
 
                   <div class="col-md-12">
+                    <label for="paypalButton">Hosted Button ID</label>
+                    <input type="text" id="paypalButton" name="paypalButton" value="{{ user.organization.paypalButton }}">
+                  </div>
+
+                  <div class="col-md-12">
                     <select name="employees" multiple="" class="employeers-tokenizer" style="width: 100%">
                       {% for emp in user.organization.employees %}
                         <option value="{{ emp._id }}" selected="">{{ emp.name }}</option>

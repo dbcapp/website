@@ -173,7 +173,7 @@ router.post('/organization/:id', multipart, (req, res) => {
   let id = req.params.id;
   let data = {};
   let emps = [];
-  data.organization = _.pick(req.body, 'description');
+  data.organization = _.pick(req.body, 'description', 'paypalButton');
   data.organization.picture = req.files.picture;
 
   if(req.body.employees.length > 0) {
