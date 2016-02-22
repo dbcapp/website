@@ -31,7 +31,12 @@ schema.virtual('createdFormated').get(function() {
 });
 
 schema.virtual('lastDonation').get(function() {
-  return moment(this.organization.lastDonation).fromNow();
+  let data = null;
+  if (this.organization) {
+    data = moment(this.organization.lastDonation).fromNow();
+  }
+  
+  return data;
 });
 
 module.exports = schema;
