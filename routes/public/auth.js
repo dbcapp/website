@@ -22,7 +22,7 @@ router.post('/login', (req, res) => {
     User.findOne({email: params.email})
       .then((user) => {
         if (user && user.passwordMatch(params.password)) {
-          req.session.user = user;
+          req.session.user = user.toObject({virtuals: true});
           req.session.save(() => {
             res.redirect('/');
             res.end();

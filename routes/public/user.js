@@ -5,7 +5,6 @@ const router = express.Router();
 const multipart = require('connect-multiparty')();
 const User = require('../../models/user');
 const _ = require('lodash');
-const saveTmpFiles = require('../../helpers/saveTmpFile');
 const fs = require('fs');
 
 router.get('/', (req, res) => {
@@ -35,90 +34,45 @@ router.post('/', multipart, (req, res) => {
   if (!currentUser) {
     res.redirect('/');
     res.end();
-  }
-  if (currentUser.type == "Donator") {
-    if (req.body.password != "" && req.body.password != req.body.confirmPassword) {
+  } else {
+    if (req.body.password === '') {
+      delete data.password;
+    } else if (req.body.password !== req.body.confirmPassword) {
       req.flash('error', 'You password not match');
       res.redirect('/user');
       res.end();
-    } else {
-      let user = null;
-      let savePromise = User.findOne({_id: currentUser._id})
-        .then((existingUser) => {
-          if (!existingUser) {
-            req.flash('error', 'User does not exists');
-            res.redirect('/user');
-            res.end();
-          }
-
-          let updateUserData = _.cloneDeep(data);
-          user = existingUser;
-          user.set(updateUserData);
-        });
-
-      savePromise
-        .then(() => user.save())
-        .then((document) => {
-          req.flash('success', 'User updated');
-          req.session.user = document;
-          res.redirect('/user');
-          res.end();
-        })
-        .catch((error) => {
-          req.flash('error', 'Error when trying to update a donator');
-          res.redirect('/user');
-          res.end();
-        });
     }
-  } else {
-    data.organization = _.pick(req.body, 'description', 'employees');
-    data.organization.picture = req.files.picture;
 
-    let user = null;
-    let savePromise = User.findOne({_id: currentUser._id})
-      .then((existingUser) => {
-        if (!existingUser) {
-          req.flash('error', 'User does not exists');
-          res.redirect('/user');
-          res.end();
-        }
-
-        let existingPicture = _.cloneDeep(existingUser.organization.picture);
-        let updateUserData = _.cloneDeep(data);
-
-        if (updateUserData.organization && updateUserData.organization.picture) {
-          delete updateUserData.organization.picture;
-        }
-
-        user = existingUser;
-        user.set(updateUserData);
-        user.organization.picture = existingPicture;
-      });
-
-    if (data.organization.picture) {
-      savePromise = savePromise
-        .then(() => {
-          let tmpFilePath = data.organization.picture.path;
-          return new Promise((resolve, reject) => {
-            user.organization.attach('picture', {path: tmpFilePath}, (err) => {
+    User
+      .findOneAndUpdate({_id: currentUser._id}, {
+        $set: data
+      })
+      .then((user) => {
+        let promise = Promise.resolve(user);
+        if (req.files.picture && req.files.picture.size) {
+          promise = new Promise((resolve, reject) => {
+            user.organization.attach('picture', {path: req.files.picture.path}, (err) => {
               if (err) {
                 reject(err);
               } else {
-                fs.unlinkSync(tmpFilePath);
-                resolve(err);
+                fs.unlinkSync(req.files.picture.path);
+                resolve();
               }
             })
+          }).then(() => {
+            return user.save();
           });
-        });
-    }
+        }
 
-    savePromise
-      .then(() => user.save())
-      .then((document) => {
+        return promise;
+      })
+      .then((user) => {
         req.flash('success', 'Organization updated');
-        req.session.user = document;
-        res.redirect('/user');
-        res.end();
+        req.session.user = user.toObject({virtuals: true});
+        req.session.save(() => {
+          res.redirect('/user');
+          res.end();
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -126,6 +80,7 @@ router.post('/', multipart, (req, res) => {
         res.redirect('/user');
         res.end();
       });
+    ;
   }
 
 });

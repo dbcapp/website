@@ -21,6 +21,16 @@ const schema = new mongoose.Schema({
   lastDonationAt: {type: Date, default: Date.now}
 });
 
+schema.virtual('pictureUrl').get(function() {
+  let url = null;
+
+  if (this.picture) {
+    url = `${this.picture.original.url.replace(path.join(path.resolve('./'), 'public'), '')}`;
+  }
+
+  return url;
+});
+
 schema.plugin(crate, {
   storage: new LocalFS({
     directory: path.join(path.resolve('./'), 'public/uploads/organization')
