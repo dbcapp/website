@@ -15,8 +15,22 @@ const schema = new mongoose.Schema({
     required: true
   },
   value: {type: Number, required: true},
-  transaction: {type: mongoose.Schema.Types.Mixed}
+  transactionData: {type: mongoose.Schema.Types.Mixed},
+  status: {
+    type: String,
+    enum: ['Processing', 'Done', 'Error'],
+    default: 'Processing'
+  },
+  statusError: {type: String}
 });
+
+// Indexes
+schema.index({
+  from: 1,
+  to: 1,
+  'transactionData.transaction.id': 1,
+  deletedAt: -1
+}, {unique: true});
 
 // Plugins
 schema.plugin(require('./plugins/base'));

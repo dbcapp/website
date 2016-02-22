@@ -33,6 +33,6 @@
     "passport": "^0.3.2",
     "passport-jwt": "^2.0.0",
     "passport-local": "^1.0.0",
-    "paypal-middleware": "git+https://github.com/dbcapp/paypal-middleware.git"
+    "paypal-middleware": "github:dbcapp/paypal-middleware"
   }
 }
