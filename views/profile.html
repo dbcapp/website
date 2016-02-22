@@ -6,11 +6,11 @@
       <div class="row">
         <div class="col-md-12">
           <div class="page-breadcroumb">
-            <p><a href="/">Home</a> / <a href="/register">Register</a> / User</p>
+            <p><a href="/">Home</a> / Profile</p>
           </div>
 
           <div class="inner-page-title">
-            <h2>Register - User</h2>
+            <h2>Profile</h2>
           </div>
         </div>
       </div>
@@ -29,11 +29,11 @@
 
                 <div class="col-md-12">
                   <div class="col-md-6">
-                    <p><input type="text" name="name" class="name" placeholder="Name" value="{{ response.user[0].name }}"></p>
+                    <p><input type="text" name="name" class="name" placeholder="Name" value="{{ user.name }}"></p>
                   </div>
 
                   <div class="col-md-6">
-                    <p><input type="email" name="email" class="email" placeholder="Email" value="{{ response.user[0].email }}"></p>
+                    <p><input type="email" name="email" class="email" placeholder="Email" value="{{ user.email }}"></p>
                   </div>
 
                   <div class="col-md-6">
@@ -43,11 +43,36 @@
                   <div class="col-md-6">
                     <p><input type="password" name="confirmPassword" class="confirmPassword" placeholder="Confirm passsword"></p>
                   </div>
-
                 </div>
+
+                {% if user.type == "Organization" %}
+                  <div class="col-md-12">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" class="description summernote" cols="30" rows="10">{{ user.organization.description }}</textarea>
+                  </div>
+
+                  <div class="col-md-12">
+                    <select name="employees" multiple="" class="employeers-tokenizer" style="width: 100%">
+                      {% for emp in user.organization.employees %}
+                        <option value="{{ emp._id }}" selected="">{{ emp.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="col-md-12">
+                    <label for="picture">Foto</label>
+
+                    {% if user.organization.picture %}
+                      <img src="/assets/{{ user.organization.picture.original.url }}" alt=""><br><br>
+                    {% endif %}
+
+                    <input type="file" id="picture" name="picture">
+                  </div>
+                {% endif %}
               </div>
+
               <p class="text-center">
-                <input type="submit" value="Register">
+                <input type="submit" value="Save">
               </p>
             </div>
           </form>

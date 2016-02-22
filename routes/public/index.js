@@ -72,5 +72,6 @@ router.get('/find', (req, res) => {
 router.use('/register', require('./register'));
 router.use('/organization', require('./organization'));
 router.use('/auth', require('./auth'));
+router.use('/user', require('./user'));
 
 module.exports = router;
