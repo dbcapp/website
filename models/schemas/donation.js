@@ -6,8 +6,7 @@ const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
   from: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    ref: 'User'
   },
   to: {
     type: mongoose.Schema.Types.ObjectId,

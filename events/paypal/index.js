@@ -26,13 +26,16 @@ function saveDonation(data, status) {
 }
 
 exports.success = (data) => {
+  console.log('success', data);
   saveDonation(data, 'Done');
 };
 
 exports.error = (data) => {
+  console.log('success', data);
   saveDonation(data, 'Error');
 };
 
 exports.process = (data) => {
+  console.log('success', data);
   saveDonation(data, 'Processing');
 };
