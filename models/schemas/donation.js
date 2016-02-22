@@ -21,7 +21,7 @@ const schema = new mongoose.Schema({
     enum: ['Processing', 'Done', 'Error'],
     default: 'Processing'
   },
-  statusError: {type: String}
+  credited: {type: Boolean, default: false}
 });
 
 // Indexes
