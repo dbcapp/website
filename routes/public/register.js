@@ -109,7 +109,6 @@ router.get('/organization/:id', (req, res) => {
 router.post('/organization', (req, res) => {
   let data = _.pick(req.body, 'name', 'email', 'password');
   data.organization = {
-    name: req.body.organizationName,
     address: req.body.organizationAddress,
     number: req.body.organizationNumber,
     city: req.body.organizationCity,

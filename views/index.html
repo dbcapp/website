@@ -53,7 +53,7 @@
                     know how or which organization?
                     <br>
                     Use out platform to search for a organization thats right for you and
-                    donate using Paypal.  
+                    donate using Paypal.
                   </div>
                 </div>
               </div>
@@ -114,13 +114,13 @@
             <div class="single-cause">
               <div class="cause-featured-area">
                 <a href="/organization/{{ org.id }}">
-                  <img class="img-responsive" src="/assets/{{ org.organization.picture.original.url }}" alt="">
+                  <img class="img-responsive" src="/assets/{{ org.organization.pictureUrl }}" alt="">
                   <i class="fa fa-link"></i>
                 </a>
               </div>
 
               <div class="cause-content">
-                <h2><a href="/organization/{{ org.id }}">{{ org.organization.name }}</a></h2>
+                <h2><a href="/organization/{{ org.id }}">{{ org.name }}</a></h2>
                 <div class="cause-stats">
                   <div class="row">
                     <div class="col-md-6"><p>Collected: ${{ org.organization.totalDonations }}</p></div>
