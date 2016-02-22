@@ -6,6 +6,8 @@ const User = require('../../models/user');
 const _ = require('lodash');
 
 router.get('/', (req, res) => {
+  let user = req.session.user;
+
   User.find({type: "Organization"})
     .limit(3)
     .sort('-createdAt')
@@ -14,7 +16,8 @@ router.get('/', (req, res) => {
       response = response.map((item) => _.omit(item.toObject({virtuals: true}), 'password'));
 
       res.render('index', {
-        lastOrgs: response
+        lastOrgs: response,
+        user: user
       });
     });
 });
