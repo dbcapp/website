@@ -93,8 +93,10 @@
             </table><!-- /table -->
 
             <div class="inner-cause-content">
-            <h2>About</h2>
-              <p>{{ org.organization.description }}</p>
+              <h2>About</h2>
+              <div>
+                {{ org.organization.description | safe }}
+              </div>
             </div>
 
             <div class="donate-steps">
