@@ -8,7 +8,6 @@ const LocalFS = require('mongoose-crate-localfs');
 const GraphicsMagic = require('mongoose-crate-gm');
 
 const schema = new mongoose.Schema({
-  name: {type: String},
   description: {type: String},
   address: {type: String},
   number: {type: String},
@@ -19,6 +18,16 @@ const schema = new mongoose.Schema({
   paypalButton: {type: String},
   totalDonations: {type: Number},
   lastDonationAt: {type: Date, default: Date.now}
+});
+
+schema.virtual('pictureUrl').get(function() {
+  let url = null;
+
+  if (this.picture) {
+    url = `${this.picture.original.url.replace(path.join(path.resolve('./'), 'public'), '')}`;
+  }
+
+  return url;
 });
 
 schema.plugin(crate, {

@@ -1,0 +1,41 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+  <section class="recent-causes section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-breadcroumb">
+            <p><a href="/">Home</a> / <a href="/find">Organizations</a> / Donate</p>
+          </div>
+
+          <div class="inner-page-title">
+            <h2>Thanks for you donate</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="inner-cause-inner">
+            <div class="inner-cause-featured">
+              <img src="/assets/img/donate.jpg" alt="{{ user.organization.name }}">
+            </div>
+
+            <div class="inner-cause-metadata">
+              <div class="inner-cause-stats">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="inner-left-collected">
+                      <p class="inner-casue-meta">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, est magni eum ipsum quisquam sint accusamus. Vitae, voluptatum, reiciendis. Consequatur voluptate natus inventore blanditiis? Tempore praesentium quod quibusdam, odit amet.</p>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /inner-cause-stats -->
+            </div><!-- /inner-cause-metadata -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

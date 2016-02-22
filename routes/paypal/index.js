@@ -14,4 +14,10 @@ const cfg = {
 
 router.use('/', paypal(cfg));
 
+router.use((err, req, res, next) => { // jshint ignore:line
+  console.log(err);
+  res.status(500);
+  res.end();
+});
+
 module.exports = router;
