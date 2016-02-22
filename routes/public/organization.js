@@ -31,6 +31,8 @@ router.get('/:id', (req, res) => {
         })
     })
     .then((org) => {
+      org.organization.totalDonations = org.organization.totalDonations.toPrecision(4);
+
       bj = new Buffer(JSON.stringify({
         from: user_id,
         to: org._id
