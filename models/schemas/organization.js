@@ -16,7 +16,7 @@ const schema = new mongoose.Schema({
   employees: [employeeSchema],
   tags: [{type: String}],
   paypalButton: {type: String},
-  totalDonations: {type: Number},
+  totalDonations: {type: Number, default: 0},
   lastDonationAt: {type: Date, default: Date.now}
 });
 

@@ -3,12 +3,12 @@
     <div class="single-cause">
       <div class="cause-featured-area">
         <a href="/organization/{{ org._id }}">
-          <img class="img-responsive" src="/assets/{{ org.organization.picture.original.url }}" alt="{{ org.organization.name }}">
+          <img class="img-responsive" src="/assets/{{ org.organization.pictureUrl }}" alt="{{ org.name }}">
           <i class="fa fa-link"></i>
         </a>
       </div>
       <div class="cause-content">
-        <h2><a href="/organization/{{ org._id }}">{{ org.organization.name }}</a></h2>
+        <h2><a href="/organization/{{ org._id }}">{{ org.name }}</a></h2>
         <div class="cause-stats">
           <div class="row">
             <div class="col-md-6">
@@ -18,7 +18,10 @@
         </div>
       </div>
       <div class="cause-link">
-        <p><i class="fa fa-bars"></i> <a href="/find?tags={{ org.organization.tags[0] }}">{{ org.organization.tags[0] }}</a></p>
+        <p>
+          <i class="fa fa-bars"></i>
+          <a href="/find?tags={{ org.organization.tags[0] }}">{{ org.organization.tags[0] }}</a>
+        </p>
         <a href="/organization/{{ org._id }}" class="cause-donate">Donate</a>
       </div>
     </div>

@@ -109,7 +109,6 @@ router.get('/organization/:id', (req, res) => {
 router.post('/organization', (req, res) => {
   let data = _.pick(req.body, 'name', 'email', 'password');
   data.organization = {
-    name: req.body.organizationName,
     address: req.body.organizationAddress,
     number: req.body.organizationNumber,
     city: req.body.organizationCity,
@@ -173,8 +172,27 @@ router.post('/organization', (req, res) => {
 router.post('/organization/:id', multipart, (req, res) => {
   let id = req.params.id;
   let data = {};
-  data.organization = _.pick(req.body, 'description', 'employees');
+  let emps = [];
+  data.organization = _.pick(req.body, 'description');
   data.organization.picture = req.files.picture;
+
+  if(req.body.employees.length > 0) {
+    User.find({_id: {$in: req.body.employees}})
+      .exec()
+      .then((users) => {
+        _.each(users, (v, k) => {
+          emps.push({name: v.name, picture: v.donator.pictureUrl})
+        });
+      });
+  } else {
+    User.findOne({_id: req.body.employees})
+      .exec()
+      .then((user) => {
+        emps.push({name: user.name, picture: user.donator.pictureUrl})
+      });
+  }
+  data.organization.employees = emps;
+
 
   let user = null;
   let savePromise = User.findOne({_id: id})

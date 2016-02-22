@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../../models/user');
+const Donation = require('../../models/donation');
 const _ = require('lodash');
 
 router.get('/donate', (req, res) => {
@@ -15,14 +16,27 @@ router.get('/:id', (req, res) => {
   let id = req.params.id;
   let bj = {};
   let user = req.session.user;
-  let user_id = (user)? user._id : null;
+  let user_id = (user) ? user._id : null;
 
   User.findOne({_id: id})
-    .exec()
     .then((org) => {
-      org = _.omit(org.toObject({virtuals: true}), 'password');
+      return Donation.find({to: id})
+        .populate('from')
+        .then((donations) => {
+          org = _.omit(org.toObject({virtuals: true}), 'password');
 
-      bj = new Buffer(JSON.stringify({FROM: user_id, TO: org._id })).toString('base64');
+          org.donations = donations;
+
+          return org;
+        })
+    })
+    .then((org) => {
+      org.organization.totalDonations = org.organization.totalDonations.toPrecision(4);
+
+      bj = new Buffer(JSON.stringify({
+        from: user_id,
+        to: org._id
+      })).toString('base64');
 
       res.render('organization', {
         classBody: "page",
